@@ -23,3 +23,10 @@
 {"level":"error","message":"an error occurred while generating salt","service":"user-service"}
 {"level":"error","message":"an error occurred while generating salt","service":"user-service"}
 {"level":"error","message":"email homer@gmail.com is allready taken","service":"user-service"}
+{"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"Permission is allowed only for admins.","service":"user-service"}
+{"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
+{"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
+{"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}

@@ -1,4 +1,5 @@
 import Joi from "joi";
+import {UploadedFile} from 'express-fileupload'
 
 class Vacation {
     public id:number;
@@ -7,7 +8,8 @@ class Vacation {
     public startDate:string;
     public endDate:string;
     public price:number;
-    public photoPath:string;
+    public image?:UploadedFile;
+    public imageName?:string;
 
     public constructor(vacation:Vacation){
         this.id = vacation.id;
@@ -16,7 +18,8 @@ class Vacation {
         this.startDate = vacation.startDate;
         this.endDate = vacation.endDate;
         this.price = vacation.price;
-        this.photoPath = vacation.photoPath;
+        this.image = vacation.image;
+        this.imageName = vacation.imageName
     }
 
     private static validationSchema = Joi.object({
@@ -26,7 +29,8 @@ class Vacation {
         startDate:Joi.date().required().greater('now'),
         endDate:Joi.date().required().greater('now'),
         price:Joi.number().required().greater(50),
-        photoPath:Joi.string().required().min(2).max(400)
+        image:Joi.object().optional(),
+        imageName:Joi.string().optional()
     });
 
     public validate():string | undefined {

@@ -1,18 +1,24 @@
 import express,{Request,Response,NextFunction} from 'express';
 import User from '../4-models/User';
 import Role from '../4-models/Role';
-import { ForbiddenError } from '../4-models/Error';
+import { ForbiddenError, UnauthorizedError } from '../4-models/Error';
 
-export const checkUserRole = (requiredRole:Role) => {
+export const isUserAdmin = async (request:Request,response:Response,next:NextFunction) => {
     
-    return (request:Request,response:Response,next:NextFunction) => {
-        const userRole = request.user?.role;
+    const user = request?.user;
+    const unauthorizedError = new UnauthorizedError("You are not authorized");
+    const forbiddenError = new ForbiddenError("Permission is allowed only for admins.");
 
-        if(userRole === requiredRole){
-            next();
-        }else{
-            response.status(403).json("You don't have permission to access this resource");
-            throw new ForbiddenError("You don't have permission to access this resource");
-        }
+    if(!user){
+        next(unauthorizedError);
     }
+
+    const isAdmin = user?.role === Role.Admin;
+
+    if(!isAdmin){
+        next(forbiddenError);
+    }
+    next();
+
+
 }
