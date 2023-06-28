@@ -7,7 +7,10 @@ function catchAll(err: any, request: Request, response: Response, next: NextFunc
     console.log(err);
 
     // Log the error to an error log file:
-    logger(err.message);
+    logger.log({
+        level:'error',
+        message:err.message
+    });
 
     // Send back the error to the front:
     response.status(err.status || 500).send(err.message);

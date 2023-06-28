@@ -2,14 +2,18 @@ import express from "express";
 import cors from "cors";
 import catchAll from "./3-middleware/catch-all";
 import routeNotFound from "./3-middleware/route-not-found";
-import controller from "./6-controllers/controller";
+import vacationsController from "./6-controllers/vacations-controller";
+import authController from "./6-controllers/auth-controller";
 import CONFIG from './config';
 
 const server = express();
 
-server.use(cors());
-server.use(express.json())
-server.use("/api", controller);
+server.use(cors({
+    origin:CONFIG.FRONT_END_URL
+}));
+server.use(express.json());
+server.use("/api", vacationsController);
+server.use("/api", authController);
 server.use("*", routeNotFound);
 server.use(catchAll);
 

@@ -26,3 +26,9 @@ export class UnauthorizedError extends Error {
     }
 }
 
+export class ForbiddenError extends Error {
+    public constructor(message:string){
+        super(message,403);
+    }
+}
+

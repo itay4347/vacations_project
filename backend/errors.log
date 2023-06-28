@@ -1,0 +1,25 @@
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Route /favicon.ico not exist","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'homer@gmail.com''' at line 2","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"email homer@gmail.com is allready taken","service":"user-service"}

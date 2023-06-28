@@ -13,7 +13,7 @@ const connection = mysql.createPool({
     database: DB_DATABASE
 })
 
-const execute = <T>(sqlQuery: string,values?:string): Promise<T> => {
+const execute = <T>(sqlQuery: string,values?:string[] | number[]): Promise<T> => {
     return new Promise<any>((resolve, reject) => {
         connection.query(sqlQuery, values, (err, result) => {
 
@@ -23,7 +23,7 @@ const execute = <T>(sqlQuery: string,values?:string): Promise<T> => {
                 resolve(result);
             }
 
-        })
+        });
     });
 }
 

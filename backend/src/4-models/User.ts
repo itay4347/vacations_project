@@ -7,7 +7,7 @@ class User {
     public lastName:string;
     public email:string;
     public password:string;
-    public role:Role;
+    public role?:Role;
 
     public constructor(user:User){
         this.id = user.id;
@@ -21,7 +21,7 @@ class User {
         id:Joi.number().optional().integer().positive(),
         firstName:Joi.string().required().min(2).max(15),
         lastName:Joi.string().required().min(2).max(15),
-        email:Joi.string().required().min(6).max(45),
+        email:Joi.string().email().required().min(6).max(45),
         password:Joi.string().required().min(4).max(20),
         role:Joi.forbidden()
     });

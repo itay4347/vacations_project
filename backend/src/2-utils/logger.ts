@@ -1,10 +1,20 @@
-import fsPromises from "fs/promises";
+import winston from 'winston';
 
-async function logger(msg: string): Promise<void> {
-    const now = new Date();
-    let line = `${now.toLocaleString()} \t ${msg}\n`;
-    line += "----------------------------\n";
-    await fsPromises.appendFile("./logger.txt", line);
-}
+const logger = winston.createLogger({
+    level:'info',
+    format:winston.format.json(),
+    defaultMeta:{service:"user-service"},
+    transports:[
+        new winston.transports.File({filename:'errors.log',level:'error'}),
+        new winston.transports.File({filename:'combined.log'})
+        ]
+});
 
-export default logger;
+
+if (process.env.NODE_ENV !== 'production') {
+    logger.add(new winston.transports.Console({
+      format: winston.format.simple(),
+    }));
+  }
+
+  export default logger;
