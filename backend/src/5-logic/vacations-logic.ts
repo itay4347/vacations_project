@@ -97,3 +97,14 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
     return vacation;
 
 }
+
+export const deleteVacation = async (id:number):Promise<void> => {
+    
+    const sql = `DELETE FROM vacations WHERE id = ?`;
+
+    const info = await dal.execute<OkPacket>(sql,[id]);
+
+    if (info.affectedRows === 0) {
+        throw new ResourceNotFoundError(id);
+    }
+}

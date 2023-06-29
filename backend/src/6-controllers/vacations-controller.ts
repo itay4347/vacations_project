@@ -46,4 +46,17 @@ router.put("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (reques
     }
 });
 
+//DELETE http://localhost:3001/api/vacations/:id
+
+router.delete("/vacations/:id([0-9]+)",[verifyLoggedIn,isUserAdmin], async (request:Request,response:Response,next:NextFunction) => {
+
+    try{
+        const id = +request.params.id;
+        await vacationLogic.deleteVacation(id);
+        response.status(204);
+    }catch(err:any){
+        next(err);
+    }
+});
+
 export default router;

@@ -30,3 +30,6 @@
 {"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
 {"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
 {"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/10 not exist","service":"user-service"}
+{"level":"error","message":"\"endDate\" must be greater than \"now\"","service":"user-service"}
