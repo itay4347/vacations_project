@@ -5,6 +5,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Home from "../Home/Home";
 import SomeOtherComponent from "../SomeOtherComponent/SomeOtherComponent";
+import Register from '../AuthArea/Register/Register';
+import Login from '../AuthArea/Login/Login';
 
 
 interface RouterProps { }
@@ -12,10 +14,12 @@ interface RouterProps { }
 const Router: FC<RouterProps> = () => (
     <Routes>
         {/* Home */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
 
-         {/* Default route
-        <Route path="/" element={<Navigate to="/home" />} /> */}
+         
+         <Route path="/register" element={<Register />} />
+
+         <Route path="/home" element={<Home />} />
 
         {/*all  views*/}
         <Route path="/otherComponent" element={<SomeOtherComponent />} />

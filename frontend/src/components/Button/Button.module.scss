@@ -1,0 +1,23 @@
+.Button {
+
+    display: block;
+    margin: 0 auto;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 8px 14px;
+    font-size: 18px;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.492);
+    background-color: rgb(198, 186, 186);
+    border-color: #000000;
+
+    &:hover {
+        background-color: rgb(99, 193, 227);
+        color: rgba(0, 0, 0, 0.492);
+        border-color: #000000;
+        transform: scale(1.1);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    }
+}

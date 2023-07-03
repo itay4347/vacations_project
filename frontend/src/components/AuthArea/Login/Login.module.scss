@@ -1,0 +1,14 @@
+.Login {
+
+    width: 250px;
+
+    &__transferNote{
+        margin-top: 10px;
+        text-align: center;
+    
+        & > a{
+            color: rgb(31, 159, 205);
+        }
+    }
+    
+}

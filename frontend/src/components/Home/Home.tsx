@@ -12,11 +12,7 @@ const Home: FC<HomeProps> = () => {
 
     return (
         <div className={styles.Home}>
-            <div className={styles.Home__counter}>
-                <p>{counter.counter}</p>
-                <button onClick={() => dispatch(increase())}>+</button>
-                <button onClick={() => dispatch(decrease())}>-</button>
-            </div>
+
         </div>
     )
 }

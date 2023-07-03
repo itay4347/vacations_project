@@ -19,6 +19,8 @@ export const register = async (user:User):Promise<string> => {
         const sql = 'INSERT INTO users Values(DEFAULT,?,?,?,?,?)';
         const info = await dal.execute<OkPacket>(sql,[firstName,lastName,email,hashedPassword,Role.User]);
         user.id = info.insertId;
+        user.role = Role.User;
+        console.log(user);
         return generateToken(user);
     }catch(err){
         throw new Error('an error occurred while generating salt',500);

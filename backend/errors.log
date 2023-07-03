@@ -30,3 +30,8 @@
 {"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
 {"level":"error","message":"Route /api/auth/login not exist","service":"user-service"}
 {"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"\"id\" must be a number","service":"user-service"}
+{"level":"error","message":"\"id\" must be a number","service":"user-service"}
+{"level":"error","message":"\"id\" must be a number","service":"user-service"}
+{"level":"error","message":"\"id\" must be a number","service":"user-service"}
+{"level":"error","message":"email test3@gmail.com is allready taken","service":"user-service"}
