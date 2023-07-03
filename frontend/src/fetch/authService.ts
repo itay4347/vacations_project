@@ -7,7 +7,11 @@ export const resgisterAsync = async (user:User):Promise<string> => {
     const response = await axios.post('/auth/register',user);
 
     const token = response.data;
-    return token;
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(token);
+        },750);
+    });
 }
 
 export const loginAsync = async (credentials:Credentials):Promise<string> => {
@@ -15,5 +19,9 @@ export const loginAsync = async (credentials:Credentials):Promise<string> => {
     const response = await axios.post('/auth/login',credentials);
 
     const token = response.data;
-    return token;
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(token);
+        },750);
+    });
 }

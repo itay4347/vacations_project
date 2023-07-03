@@ -14,7 +14,7 @@
     border-color: #000000;
 
     &:hover {
-        background-color: rgb(99, 193, 227);
+        background:linear-gradient(to right, rgb(143, 211, 216),rgb(123, 210, 209),rgb(99, 193, 227));
         color: rgba(0, 0, 0, 0.492);
         border-color: #000000;
         transform: scale(1.1);

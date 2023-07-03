@@ -6,6 +6,25 @@ const axiosCustomInstance = axios.create({
 });
 
 
+axiosCustomInstance.interceptors.request.use(req => {
+        
+        return req;
+    },
+    err => {
+        return Promise.reject(err);
+    },
+);
+
+axiosCustomInstance.interceptors.response.use(res => {
+        return res;
+    },
+    err => {
+        console.log('this is an error', err)
+        return Promise.reject(err);
+    },
+);
+
+
 
 
 export default axiosCustomInstance;

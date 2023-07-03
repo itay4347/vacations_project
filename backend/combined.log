@@ -35,3 +35,14 @@
 {"level":"error","message":"\"id\" must be a number","service":"user-service"}
 {"level":"error","message":"\"id\" must be a number","service":"user-service"}
 {"level":"error","message":"email test3@gmail.com is allready taken","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"an error occurred while generating salt","service":"user-service"}
