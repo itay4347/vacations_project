@@ -23,11 +23,14 @@ const AuthMenu: FC<AuthMenuProps> = () => {
       return(
         <>
           <span>Hello {user.firstName} {user.lastName}</span>
-          <NavLink onClick={logoutHandler} to="#">Logout</NavLink>
+          <NavLink onClick={logoutHandler} to="/">Logout</NavLink>
         </>
       )
     }
-    navigate("/");
+    return(
+      <span>hello Guest, please Login to proceed</span>
+    );
+    
     
   }
 

@@ -5,14 +5,14 @@ import { useForm } from 'react-hook-form';
 import Credentials from '../../../models/Credentials';
 import Button from '../../Button/Button';
 import { loginAsync } from '../../../fetch/authService';
-import { useNavigate } from 'react-router-dom';
 import validation from './validation';
 import { useAppDispatch } from '../../../hooks';
 import {login} from '../../../auth/authSlice';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import Loader from '../../Loader/Loader';
 import Alert from '../../AlertArea/Alert/Alert';
-import LoggedInAlert from '../../AlertArea/LoggedInAlert/LoggedInAlert';
+
+
 
 interface LoginProps {}
 
@@ -30,7 +30,7 @@ const Login: FC<LoginProps> = () => {
     try{
       const token = await loginAsync(credentials);
       dispatch(login(token));
-      navigate('/vacations')
+      navigate('/vacations');
     }catch(err){
       console.log(err);
       setError(err);
@@ -86,7 +86,9 @@ const Login: FC<LoginProps> = () => {
         <div className={styles.Login__transferNote}>
         dont have an account?
         <br />
-        <NavLink to='/'>Register</NavLink>
+        <NavLink to='/register'>Register</NavLink>
+        <br />
+        
       </div>
     </div>
   )

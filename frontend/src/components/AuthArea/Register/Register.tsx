@@ -8,9 +8,10 @@ import { resgisterAsync } from '../../../fetch/authService';
 import * as auth from '../../../auth/authSlice'
 import { useAppDispatch } from '../../../hooks';
 import validation from './validation';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../../Loader/Loader';
 import Alert from '../../AlertArea/Alert/Alert';
+
 
 interface RegisterProps {}
 
@@ -89,7 +90,7 @@ const Register: FC<RegisterProps> = () => {
       <div className={styles.Register__transferNote}>
         allready have an account?
         <br />
-        <NavLink to='/'>Login</NavLink>
+        <Link to='/'>Login</Link>
       </div>
       
     </div>
