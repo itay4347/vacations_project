@@ -47,3 +47,68 @@
 {"level":"error","message":"an error occurred while generating salt","service":"user-service"}
 {"level":"error","message":"an error occurred while generating salt","service":"user-service"}
 {"level":"error","message":"an error occurred while generating salt","service":"user-service"}
+{"level":"error","message":"email test1@gmail.com is allready taken","service":"user-service"}
+{"level":"error","message":"email test1@gmail.com is allready taken","service":"user-service"}
+{"level":"error","message":"email test1@gmail.com is allready taken","service":"user-service"}
+{"level":"error","message":"path must be absolute or specify root to res.sendFile","service":"user-service"}
+{"level":"error","message":"Route /favicon.ico not exist","service":"user-service"}
+{"level":"error","message":"path must be absolute or specify root to res.sendFile","service":"user-service"}
+{"level":"error","message":"Route /api/images/e128abdd-36db-4268-8a02-ca2be1a0f1be.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/5b6590ab-b6ce-47b6-b6b8-fdfb125346ac.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/cf6524ea-0323-4ee2-8d0f-45cca6a107b4.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/e0951238-d3f4-4820-bb7d-b520e8d48f42.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/54830b60-f389-4e0e-aa08-04690b61d8c5.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/f9d659d3-620f-4d78-bd14-7f096a31e57e.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/7b97b1a5-9f73-4584-b66c-c14662342635.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/1114eedd-98eb-4abe-9564-2a7b3bdde59e.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/ceefd682-56f3-44b5-965d-7671922ac154.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/8cc64740-1227-4d51-8ee4-626214e7330a.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg not exist","service":"user-service"}
+{"level":"error","message":"Route /api/images/2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg not exist","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\8cc64740-1227-4d51-8ee4-626214e7330a.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\92c7cbcc-f265-4991-85d8-977f1a6b47cb.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\2f979b9f-c8fc-42ee-a895-28573f3464c4.jpg'","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/10 not exist","service":"user-service"}
+{"level":"error","message":"Permission is allowed only for admins.","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/10 not exist","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}

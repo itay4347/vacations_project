@@ -46,4 +46,6 @@ router.put("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (reques
     }
 });
 
+
+
 export default router;

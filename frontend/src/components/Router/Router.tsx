@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Home from "../Home/Home";
 import SomeOtherComponent from "../SomeOtherComponent/SomeOtherComponent";
@@ -13,9 +13,9 @@ interface RouterProps { }
 const Router: FC<RouterProps> = () => (
     <Routes>
         {/* Home */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
 
-
+        <Route path='/login' element={<Login/>}/>
 
          
          <Route path="/register" element={<Register />} />

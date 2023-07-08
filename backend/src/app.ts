@@ -5,7 +5,9 @@ import catchAll from "./3-middleware/catch-all";
 import routeNotFound from "./3-middleware/route-not-found";
 import vacationsController from "./6-controllers/vacations-controller";
 import authController from "./6-controllers/auth-controller";
+import imagesController from "./6-controllers/image-controller";
 import CONFIG from './config';
+
 
 const server = express();
 
@@ -16,6 +18,7 @@ server.use(express.json());
 server.use(expressFileUpload());
 server.use("/api", vacationsController);
 server.use("/api", authController);
+server.use("/api",imagesController);
 server.use("*", routeNotFound);
 server.use(catchAll);
 

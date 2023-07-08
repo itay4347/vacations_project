@@ -1,1 +1,107 @@
-.VacationItem {}
+.VacationItem {
+    width: 250px;
+    height: 300px;
+    border: 2px solid rgb(63, 138, 224);
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px;
+
+    &__imgContainer{
+        height: 30%;
+        position: relative;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 40px;
+            height: 20px;
+            background-color: white;
+            border: 2px solid rgb(63, 138, 224);
+            border-radius: 3px;
+            opacity: 0;
+        }
+        & > input{
+            opacity: 0;
+            position: absolute;
+            cursor: pointer;
+        }
+        h3{
+            color: whitesmoke;
+            margin-left: 8px;
+            text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 10px;
+            left: 5px;
+        }
+    }
+
+    &__descriptionContainer{
+        height: 57%;
+        overflow: auto;
+        background: linear-gradient(to bottom, rgb(231, 223, 223),rgb(221, 212, 212),rgb(208, 199, 199));
+        border-radius: 5px;
+    }
+    &__priceContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color:white;
+        text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+        font-size: 17px;
+
+        
+        span{
+            font-size: 10px;
+            position: absolute;
+            left:141px;
+            top: 6px;
+            color:white;
+            text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+        }
+    }
+
+    &__likeButton {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    
+        input {
+          display: none;
+        }
+        span {
+          display: inline-block;
+          width: 60px;
+          height: 20px;
+          background: linear-gradient(to bottom, rgb(231, 223, 223),rgb(221, 212, 212),rgb(208, 199, 199));
+          border: 2px solid rgb(63, 138, 224);
+          border-radius: 3px;
+          margin-right: 5px;
+          text-align: center;
+          line-height: 20px;
+          font-size: 14px;
+
+          &::before{
+            content: "\2665";
+            font-family: "Arial", sans-serif;
+          }
+        }
+    
+
+      }
+
+
+      input:checked + span::before {
+        color: red;
+      }
+      
+
+
+}

@@ -4,14 +4,13 @@
     justify-content:space-between;
     height:80px;
     border:1px solid black;
-    background:linear-gradient(to right, rgb(143, 211, 216),rgb(123, 210, 209),rgb(99, 193, 227));
         &__authMenu{
         margin-right: 10px;
         }
-        &__headerLinks{
+        h1{
             width: 30%;
-            display: flex;
-            justify-content: space-between;
-            margin-left: 10px;
+            margin-left: 20px;
+
+
         }
 }

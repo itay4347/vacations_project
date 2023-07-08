@@ -8,7 +8,7 @@ interface FooterProps { }
 const Footer: FC<FooterProps> = () => {
 
     return (
-        <footer className={styles.Footer}>
+        <footer className={`blueBackground ${styles.Footer}`}>
             Footer
         </footer>
     )

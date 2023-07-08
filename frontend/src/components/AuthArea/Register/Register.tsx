@@ -43,9 +43,9 @@ const Register: FC<RegisterProps> = () => {
     
     if(error && showError){
       return(
-        <Alert error={error} onClose={() => {setShowError(false)}}>
+        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
           <Button onClick={() => {
-            navigate('/register');
+            window.location.reload();
           }}>Try again</Button>
         </Alert>
       );

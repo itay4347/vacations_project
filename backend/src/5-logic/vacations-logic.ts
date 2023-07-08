@@ -97,3 +97,4 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
     return vacation;
 
 }
+

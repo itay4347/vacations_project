@@ -29,6 +29,16 @@ export const vacationSlice = createSlice({
                 state.vacations[indexToUpdate] = vacation;
             }
             state.vacation = vacation;
+        },
+        deleteVacation: (state, { payload: id }: PayloadAction<number>) => {
+            const indexToDelete = state.vacations.findIndex((p) => p.id === id);
+            if (indexToDelete >= 0) {
+                state.vacations.splice(indexToDelete, 1);
+            }
         }
     }
-})
+});
+
+export const {setVacations,setVacation,addVacation,updateVacation,deleteVacation} = vacationSlice.actions;
+
+export default vacationSlice.reducer;
