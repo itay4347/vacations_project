@@ -1,0 +1,21 @@
+.Pagination {
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    gap: 5px;
+    button{
+        padding: 5px;
+        font-size: 20px;
+        margin-bottom: 10px;
+        border: 2px solid grey;
+        border-radius: 3px;
+
+
+        &:hover{
+            background:linear-gradient(to right, rgb(143, 211, 216),rgb(123, 210, 209),rgb(99, 193, 227));
+            cursor: pointer;
+            transform: scale(1.1);
+            box-shadow: 3px 3px 6px grey;
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import {createSlice,PayloadAction} from '@reduxjs/toolkit';
 import Vacation from '../../models/Vacation';
+import Followers_Count from '../../models/FollowerCount';
 
 interface VacationsState {
     vacations: Vacation[];
@@ -31,14 +32,43 @@ export const vacationSlice = createSlice({
             state.vacation = vacation;
         },
         deleteVacation: (state, { payload: id }: PayloadAction<number>) => {
-            const indexToDelete = state.vacations.findIndex((p) => p.id === id);
+            const indexToDelete = state.vacations.findIndex((v) => v.id === id);
             if (indexToDelete >= 0) {
                 state.vacations.splice(indexToDelete, 1);
+            }
+        },
+        setFollowersPerVacation: (state,{payload:likesCount}:PayloadAction<Followers_Count>) => {
+            const {vacationId,followersCount} = likesCount;
+            const vacation = state.vacations.find(v => v.id === vacationId);
+
+            if(vacation){
+                vacation.followersCount = followersCount || 0;
+            }
+        },
+        addLikeToVacation: (state, {payload:vacationId}:PayloadAction<number>) => {
+            const vacationLikedIndex = state.vacations.findIndex(v => v.id === vacationId);
+
+            if(vacationLikedIndex >= 0){
+                state.vacations[vacationLikedIndex].followersCount += 1;
+            }
+        },
+        deleteLikeToVacation: (state, {payload:vacationId}:PayloadAction<number>) => {
+            const vacationUnlikedIndex = state.vacations.findIndex(v => v.id === vacationId);
+
+            if(vacationUnlikedIndex >= 0){
+                state.vacations[vacationUnlikedIndex].followersCount -= 1;
             }
         }
     }
 });
 
-export const {setVacations,setVacation,addVacation,updateVacation,deleteVacation} = vacationSlice.actions;
+export const {setVacations,
+              setVacation,
+              addVacation,
+              updateVacation,
+              deleteVacation,
+              setFollowersPerVacation,
+              addLikeToVacation,
+              deleteLikeToVacation} = vacationSlice.actions;
 
 export default vacationSlice.reducer;

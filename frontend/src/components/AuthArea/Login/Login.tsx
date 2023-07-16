@@ -66,29 +66,41 @@ const Login: FC<LoginProps> = () => {
     )
   }
   return (
-    <div className={`Box ${styles.Login}`}>
-      {renderErrorMessage()}
-      <h2>Login</h2>
-      <br />
-       <form onSubmit={handleSubmit(handleLogin)}>
-          <FormGroupWithError error={formState.errors.email?.message}>
-            <label>Email</label>
-            <input type="email" {...register('email',validation.email)} />
-          </FormGroupWithError>
-          <br />
-          <FormGroupWithError error={formState.errors.password?.message}>
-            <label>Password</label>
-            <input type="password" {...register('password',validation.password)} />
-          </FormGroupWithError>
-          <br />
-          <Button>Login</Button>
-        </form> 
-        <div className={styles.Login__transferNote}>
-        dont have an account?
+    <div className={styles.Login}>
+      <p>welcome to <strong>Bon Voyage</strong>
         <br />
-        <NavLink to='/register'>Register</NavLink>
+        Everybody love themselves a nice vacation.
         <br />
-        
+        whether its a relaxed holiday by the bitch, city travels or adventure around the nature of our world.
+        <br />
+        in this site, you can enjoy a big variaty of vacations and destination around the world for you to travel!
+        <br />
+        please Login to see all the available vacations!
+      </p>
+
+      <div className={`Box ${styles.Login__loginBox}`}>
+        {renderErrorMessage()}
+        <h2>Login</h2>
+        <br />
+        <form onSubmit={handleSubmit(handleLogin)}>
+            <FormGroupWithError error={formState.errors.email?.message}>
+              <label>Email</label>
+              <input type="email" {...register('email',validation.email)} />
+            </FormGroupWithError>
+            <br />
+            <FormGroupWithError error={formState.errors.password?.message}>
+              <label>Password</label>
+              <input type="password" {...register('password',validation.password)} />
+            </FormGroupWithError>
+            <br />
+            <Button>Login</Button>
+          </form> 
+          <div>
+            dont have an account?
+            <br />
+            <NavLink to='/register'>Register</NavLink>
+            <br />
+          </div>
       </div>
     </div>
   )

@@ -1,21 +1,29 @@
 import React, { FC, useState,useEffect } from 'react';
 import styles from './VacationsArea.module.scss';
-import Alert from '../AlertArea/Alert/Alert';
 import LoggedInAlert from '../AlertArea/LoggedInAlert/LoggedInAlert';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getVacationsAsync } from '../../fetch/vacationsService';
 import { setVacations } from './vacationsSlice';
 import Loader from '../Loader/Loader';
 import Vacations from './Vacations/Vacations';
+import Pagination from '../Pagination/Pagination';
+import { getFollowersCountAsync } from '../../fetch/followersService';
+
 
 interface VacationsAreaProps {}
 
 const VacationsArea: FC<VacationsAreaProps> = () => {
 
   const [showLoggedInMessage,setShowLoggedInMessage] = useState(true);
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(false);  
+  const [currentPage,setCurrentPage] = useState(1);
+  
   const dispatch = useAppDispatch();
   const {vacations} = useAppSelector(state => state.vacationsState);
+
+  const vacationsPerPage = 10;
+  const lastVacationIndexInOnePage = currentPage * vacationsPerPage;
+  const firstVacationIndexInOnePage = lastVacationIndexInOnePage - vacationsPerPage;
 
 
 
@@ -43,6 +51,22 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
       try{
         const vacations = await getVacationsAsync();
         dispatch(setVacations(vacations));
+        const followersCountPerVacation = await getFollowersCountAsync();
+
+        const vacationsWithFollowersCount = vacations.map((vacation) => {
+          const {id} = vacation;
+          const indexOfVacation = followersCountPerVacation.findIndex(v => v.vacationId === id);
+          const followersCount = followersCountPerVacation[indexOfVacation].followersCount;
+          return(
+            {
+              ...vacation,
+              followersCount: followersCount
+            } 
+          );
+        });
+        dispatch(setVacations(vacationsWithFollowersCount));
+        
+        
 
       }catch(err){
         console.log(err);
@@ -53,6 +77,7 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
     getVacations();
   },[]);
 
+  const vacationsInOnePage = vacations.slice(firstVacationIndexInOnePage,lastVacationIndexInOnePage);
   if(isLoading){
     return(
       <div className={styles.VacationsArea__loaderContainer}>
@@ -63,7 +88,12 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
   return(
     <div className={styles.VacationsArea}>
       {clearLoggedInMessage()}
-      <Vacations vacations={vacations}/>
+      <Vacations vacations={vacationsInOnePage}/>
+      <Pagination 
+      totalVacations={vacations.length}
+      vacationsPerPage={vacationsPerPage}
+      setCurrentPage={setCurrentPage}
+       />
     </div>
   );
 }

@@ -4,8 +4,8 @@ import CONFIG from '../config';
 
 export const generateToken = (user:User) => {
 
-    const {id,firstName,lastName,email} = user
-    const container = { user:{id,firstName,lastName,email} };
+    const {id,firstName,lastName,email,role} = user
+    const container = { user:{id,firstName,lastName,email,role} };
 
     const options = {expiresIn:'3h'};
 

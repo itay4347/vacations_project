@@ -9,7 +9,7 @@ const imagePath = './src/1-assets/images';
 
 export const getAllVacations = async ():Promise<Vacation[]> => {
     const sql = `
-        SELECT * FROM vacations;
+        SELECT * FROM vacations ORDER BY startDate;
     `;
 
     return await dal.execute<Vacation[]>(sql);

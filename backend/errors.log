@@ -112,3 +112,25 @@
 {"level":"error","message":"Unauthorized","service":"user-service"}
 {"level":"error","message":"Unauthorized","service":"user-service"}
 {"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Route /api/followersCount not exist","service":"user-service"}
+{"level":"error","message":"Route /api/followers/12 not exist","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}

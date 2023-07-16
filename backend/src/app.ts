@@ -6,6 +6,7 @@ import routeNotFound from "./3-middleware/route-not-found";
 import vacationsController from "./6-controllers/vacations-controller";
 import authController from "./6-controllers/auth-controller";
 import imagesController from "./6-controllers/image-controller";
+import followersController from "./6-controllers/followers-controller";
 import CONFIG from './config';
 
 
@@ -19,6 +20,7 @@ server.use(expressFileUpload());
 server.use("/api", vacationsController);
 server.use("/api", authController);
 server.use("/api",imagesController);
+server.use("/api",followersController);
 server.use("*", routeNotFound);
 server.use(catchAll);
 

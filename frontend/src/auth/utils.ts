@@ -16,7 +16,8 @@ export const setInitialAuthState = ():AuthState => {
     }
     return{
         user,
-        token
+        token,
+        vacationsFollowed:[]
     }
 }
 

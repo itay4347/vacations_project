@@ -7,6 +7,7 @@ interface Vacation {
     price:number;
     imageName:string;
     image:FileList;
+    followersCount:number;
 }
 
 export default Vacation;
