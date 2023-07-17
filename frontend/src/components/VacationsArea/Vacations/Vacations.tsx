@@ -36,7 +36,6 @@ const Vacations: FC<VacationsProps> = ({vacations}) => {
       return <VacationItem 
               key={vacation.id}
               vacation={vacation}
-              followersCount={vacation.followersCount}
               user={user as User} />
         
     });

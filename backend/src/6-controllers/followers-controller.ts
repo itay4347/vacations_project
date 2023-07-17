@@ -20,7 +20,13 @@ router.get('/followers/:userId/vacations/:vacationId',
             async (request:Request,response:Response,next:NextFunction) => {
     try{
         const userId = +request.params.userId;
-        const vacationId = +request.params.vacatioId;
+        const vacationId = +request.params.vacationId;
+
+        if (isNaN(userId) || isNaN(vacationId)) {
+            response.status(400).send('userId and vacationId must be numbers');
+            return;
+          }
+
         const isFollowed = await followersLogic.checkIfUserLikedVacation(userId,vacationId);
         if(isFollowed === undefined){
             response.status(200).send(false);
@@ -74,6 +80,7 @@ router.delete(
         const userId = +request.params.userId;
         const vacationId = +request.params.vacationId;
         await followersLogic.deleteLikedVacation(userId,vacationId);
+        response.status(202).send('follower has successfully deleted');
     }catch(err){
         next(err);
     }

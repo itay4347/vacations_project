@@ -9,7 +9,7 @@ export const getFollowersCountAsync = async ():Promise<Followers_Count[]> => {
     return response.data;
 }
 
-export const checkIfUserLikedVacation = async (userId:number,vacationId:number):Promise<boolean> => {
+export const checkIfUserLikedVacationAsync = async (userId:number,vacationId:number):Promise<boolean> => {
     
     const response = await axios.get<boolean>(`/followers/${userId}/vacations/${vacationId}`);
     return response.data;

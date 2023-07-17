@@ -1,0 +1,38 @@
+.LikeButton {
+
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+
+    span {
+      display: inline-block;
+      width: 60px;
+      height: 20px;
+      background: linear-gradient(to bottom, rgb(231, 223, 223),rgb(221, 212, 212),rgb(208, 199, 199));
+      border: 2px solid rgb(63, 138, 224);
+      border-radius: 3px;
+      margin-right: 5px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 14px;
+
+      &::before{
+        content: "\2665";
+        font-family: "Arial", sans-serif;
+      }
+    }
+
+
+  }
+
+
+  input:checked + span::before {
+    color: red;
+  }

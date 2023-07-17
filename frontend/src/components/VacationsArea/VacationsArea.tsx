@@ -52,15 +52,17 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
         const vacations = await getVacationsAsync();
         dispatch(setVacations(vacations));
         const followersCountPerVacation = await getFollowersCountAsync();
+        console.log(followersCountPerVacation);
 
         const vacationsWithFollowersCount = vacations.map((vacation) => {
           const {id} = vacation;
           const indexOfVacation = followersCountPerVacation.findIndex(v => v.vacationId === id);
           const followersCount = followersCountPerVacation[indexOfVacation].followersCount;
+          
           return(
             {
               ...vacation,
-              followersCount: followersCount
+              followersCount
             } 
           );
         });

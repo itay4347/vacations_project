@@ -18,7 +18,10 @@ export const getVacationsLikedPerUser = async (userId:number):Promise<Vacation[]
 export const getFollowersCount = async ():Promise<Followers_Count[]> => {
 
     const sql = `
-        SELECT vacationId, COUNT(*) as followersCount FROM followers GROUP BY vacationId;
+         SELECT vacations.id as vacationId, COUNT(followers.userId) AS followersCount
+        FROM vacations
+        LEFT JOIN followers ON vacations.id = followers.vacationId
+        GROUP BY vacations.id;
     `;
     const followerCount = await dal.execute<Followers_Count[]>(sql);
 
