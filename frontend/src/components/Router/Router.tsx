@@ -6,6 +6,8 @@ import SomeOtherComponent from "../SomeOtherComponent/SomeOtherComponent";
 import Register from '../AuthArea/Register/Register';
 import Login from '../AuthArea/Login/Login';
 import VacationsArea from '../VacationsArea/VacationsArea';
+import AddVacation from '../VacationsArea/AddVacation/AddVacation';
+import EditVacation from '../VacationsArea/EditVacation/EditVacation';
 
 
 interface RouterProps { }
@@ -22,8 +24,11 @@ const Router: FC<RouterProps> = () => (
 
          <Route path="/vacations" element={<VacationsArea />} />
 
-        {/*all  views*/}
-        <Route path="/otherComponent" element={<SomeOtherComponent />} />
+        <Route path="/addVacation" element={<AddVacation />} />
+
+        <Route path='/editVacation' element={<EditVacation/>}/>
+
+        
 
 
 

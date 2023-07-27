@@ -22,7 +22,7 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
 
 
 
-  const [isLiked,setIsLiked] = useState<boolean>();
+  const [isLiked,setIsLiked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
 
@@ -34,7 +34,6 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
           const checkIfFollowed = await checkIfUserLikedVacationAsync(userId,vacation.id);
           setIsLiked(checkIfFollowed);
         }
-        console.log(isLiked);
       }catch(err){
         console.log(err);
       }

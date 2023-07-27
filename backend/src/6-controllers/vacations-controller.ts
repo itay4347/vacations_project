@@ -37,14 +37,26 @@ router.put("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (reques
         const id = +request.params.id;
         request.body.id = id;
         request.body.image = request.files?.image;
-        
         const vacation = new Vacation(request.body);
+        vacation.id = id;
+        console.log(vacation.image)
         const updatedVacation = await vacationLogic.updateVacation(vacation);
         response.json(updatedVacation);
     }catch(err:any){
         next(err);
     }
 });
+
+router.delete("/vacations/:id", [verifyLoggedIn,isUserAdmin], async (request:Request,response:Response,next:NextFunction) => {
+    try{
+        const id = +request.params.id;
+        
+        await vacationLogic.deleteVacation(id);
+        response.json(204);
+    }catch(err:any){
+        next(err);
+    }
+})
 
 
 

@@ -1,13 +1,14 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { FC,useState } from 'react';
 import styles from './VacationItem.module.scss';
 import Vacation from '../../../../models/Vacation';
 import { BASE_API_URL } from '../../../../config';
-import { useAppDispatch, useAppSelector } from '../../../../hooks';
 import Role from '../../../../models/Role';
 import User from '../../../../models/User';
-import { setLikedVacations } from '../../../../auth/authSlice';
-import LikedVacation from '../../../../models/LikedVacation';
 import LikeButton from '../../../LikeButton/LikeButton';
+import { useNavigate } from 'react-router-dom';
+import { deleteVacationAsync } from '../../../../fetch/vacationsService';
+import { useDispatch } from 'react-redux';
+import * as vacationReducer from '../../vacationsSlice';
 
 
 interface VacationItemProps {
@@ -17,13 +18,32 @@ interface VacationItemProps {
 
 const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
 
-  const {destination,description,startDate,endDate,price,imageName} = vacation;
+  const [isLoading,setIsLoading] = useState<Boolean>(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
+  const {id,destination,description,startDate,endDate,price,imageName} = vacation;
   const imgSrc = `${BASE_API_URL}/vacations/images/${imageName}`;
-
   const start_Date = new Date(startDate);
   const startDateString = `${start_Date.getDate()}.${start_Date.getMonth() + 1}.${start_Date.getFullYear()}`;
   const end_Date = new Date(endDate);
   const endDateString = `${end_Date.getDate()}.${end_Date.getMonth() + 1}.${end_Date.getFullYear()}`;
+  
+  
+
+  const deleteVacation = async () => {
+    setIsLoading(true);
+    console.log(id)
+    try{
+      await deleteVacationAsync(id);
+      dispatch(vacationReducer.deleteVacation(id));
+    }catch(err){
+      console.log(err);
+    }finally{
+      setIsLoading(false);
+    }
+
+  }
 
   const renderVacationCardRoleBased = () => {
 
@@ -50,8 +70,11 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
       <li className={`blueBackground ${styles.VacationItem}`}>
       <div className={styles.VacationItem__imgContainer}>
         <div className={styles.VacationItem__btnContainer}>
-        <button>&#9998; Edit</button>
-        <button><i className="fa fa-trash" aria-hidden="true"></i> Delete</button>
+        <button onClick={() => {
+          dispatch(vacationReducer.setVacation(vacation));
+          navigate('/editVacation');
+        }}>&#9998; Edit</button>
+        <button onClick={() => deleteVacation()}><i className="fa fa-trash" aria-hidden="true"></i> Delete</button>
         </div>
         <img src={imgSrc} alt=''/>
         <h3>{destination}</h3>

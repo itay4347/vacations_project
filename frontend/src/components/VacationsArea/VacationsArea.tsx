@@ -52,7 +52,6 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
         const vacations = await getVacationsAsync();
         dispatch(setVacations(vacations));
         const followersCountPerVacation = await getFollowersCountAsync();
-        console.log(followersCountPerVacation);
 
         const vacationsWithFollowersCount = vacations.map((vacation) => {
           const {id} = vacation;

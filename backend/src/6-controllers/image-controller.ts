@@ -10,4 +10,5 @@ router.get('/vacations/images/:imageName', (request:Request,response:Response) =
     response.sendFile(imagePath);
 });
 
+
 export default router;

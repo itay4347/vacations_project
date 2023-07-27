@@ -21,7 +21,7 @@ export const getVacationById = async (id:number):Promise<Vacation> => {
         WHERE id = ${id};
     `;
     const vacations = await dal.execute<Vacation[]>(sql);
-    const vacation = vacations[0];
+    const vacation = vacations[0]
     if(!vacation) throw new ResourceNotFoundError(id);
     return vacation;
 
@@ -60,41 +60,95 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
     const error = vacation.validate();
     if(error) throw new ValidationError(error);
 
-    const {id,destination,description,startDate,endDate,price,imageName,image} = vacation;
+    const vacations = await getAllVacations();
 
-    if(image){
-        const currentImage = imageName;
+    const vacationIndex = vacations.findIndex((v) => v.id === vacation.id);
+      
+    
+    if(vacation.image){
+        const currentImage = vacations[vacationIndex].imageName;
+        console.log(currentImage);
         if(fs.existsSync(`${imagePath}/${currentImage}`)){
             fs.unlinkSync(`${imagePath}/${currentImage}`);
         }
 
         await saveImagesToAssets(vacation);
+        
         delete vacation.image;
 
     }
+    vacations[vacationIndex] = vacation;
 
-    const sql = `UPDATE vacations SET destination = ?,
-                                      description = ?,
-                                      startDate = ?,
-                                      endDate = ?,
-                                      price = ?,
-                                      imageName = ?
-                        WHERE id = ?;
-    `;
-
-    const info = await dal.execute<OkPacket>(sql,[destination,
-                                                  description,
-                                                  startDate,
-                                                  endDate,
-                                                  price,
-                                                  vacation.imageName,
-                                                  id]);
     
-    if(info.affectedRows === 0){
-        throw new ResourceNotFoundError(id);
-    }
+
+    const {id,destination,description,startDate,endDate,price} = vacation;
+        if(vacation.imageName){
+            const sql = `UPDATE vacations SET destination = ?,
+                                            description = ?,
+                                            startDate = ?,
+                                            endDate = ?,
+                                            price = ?,
+                                            imageName = ?
+                        WHERE id = ?;
+                    `;
+
+         const params = [destination,description,startDate,endDate,price,vacation.imageName,id]
+         const info = await dal.execute<OkPacket>(sql,params);
+         if(info.affectedRows === 0){
+            throw new ResourceNotFoundError(id);
+        }
+        }else{
+            const sql = `UPDATE vacations SET destination = ?,
+                                              description = ?,
+                                              startDate = ?,
+                                              endDate = ?,
+                                              price = ?
+                        WHERE id = ?;
+                    `;
+
+            const params = [destination,description,startDate,endDate,price,id]
+            const info = await dal.execute<OkPacket>(sql,params);
+            if(info.affectedRows === 0){
+            throw new ResourceNotFoundError(id);
+            }
+        }
+
+        
+
+        // if(!vacation.imageName){
+        //     params.push(id);
+        // }else{
+        //     params.push(vacation.imageName)
+        //     params.push(id)
+        // }
+        
+
+        
+    
+
+
+    
 
     return vacation;
 
 }
+
+
+
+export const deleteVacation = async (id:number):Promise<void> => {
+
+    const vacation = await getVacationById(id);
+    console.log(vacation.imageName)
+    if(vacation.imageName){
+        if(fs.existsSync(`${imagePath}/${vacation.imageName}`)){
+            fs.unlinkSync(`${imagePath}/${vacation.imageName}`);
+        }
+    }
+
+    const sql = 'DELETE FROM vacations WHERE id = ?;';
+    await dal.execute(sql,[id]);
+
+}
+
+
 

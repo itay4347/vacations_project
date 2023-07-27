@@ -506,3 +506,152 @@
 {"level":"error","message":"Unknown column 'NaN' in 'where clause'","service":"user-service"}
 {"level":"error","message":"Unknown column 'NaN' in 'where clause'","service":"user-service"}
 {"level":"error","message":"Unknown column 'NaN' in 'where clause'","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/undefined not exist","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/undefined not exist","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/20 not exist","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/20 not exist","service":"user-service"}
+{"level":"error","message":"Route /api/vacations/20 not exist","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"id 23 not exist","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"description\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"\"destination\" is required","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Route /api/login not exist","service":"user-service"}
+{"level":"error","message":"\"password\" must be a string","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"\"startDate\" must be greater than \"now\"","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\[object FileList]'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\undefined'","service":"user-service"}
+{"level":"error","message":"\"startDate\" must be greater than \"now\"","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', imageName = 42\n                        WHERE id = '8fdfcefc-5c6c-41cd-851d-da2' at line 6","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', imageName = 42\n                        WHERE id = '441e9364-a84b-4e73-b280-dc8' at line 6","service":"user-service"}
+{"level":"error","message":"Truncated incorrect DOUBLE value: 'df719d0b-28b0-44b4-b02e-6c078fa9520d.jpg'","service":"user-service"}
+{"level":"error","message":"Truncated incorrect DOUBLE value: '29cda884-ce27-4b53-ac69-0f8cd8b9489f.jpg'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\null'","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 7","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}

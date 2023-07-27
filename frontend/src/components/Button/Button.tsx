@@ -4,10 +4,11 @@ import styles from './Button.module.scss';
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  id?:string
 }
 
-const Button: FC<ButtonProps> = ({children,onClick}) => (
-  <button className={styles.Button} onClick={onClick}>
+const Button: FC<ButtonProps> = ({children,onClick,id}) => (
+  <button id={id} className={styles.Button} onClick={onClick}>
     {children}
   </button>
 );

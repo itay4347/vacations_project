@@ -47,6 +47,15 @@ export const addLikedVacation = async (likedVacation:LikedVacation):Promise<Like
 
     const {userId,vacationId} = likedVacation;
 
+    const checkSql = 'SELECT id FROM followers WHERE userId = ? AND vacationId = ?;';
+    const [existingLike] = await dal.execute<{ id: number }[]>(checkSql, [userId, vacationId]);
+  
+    if (existingLike) {
+      // If the user has already liked the vacation, return the existing likedVacation object without inserting again
+      likedVacation.id = existingLike.id;
+      return likedVacation;
+    }
+
     const sql = 'INSERT INTO followers VALUES(DEFAULT,?,?);';
 
     const info = await dal.execute<OkPacket>(sql,[userId,vacationId]);

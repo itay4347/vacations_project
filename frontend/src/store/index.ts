@@ -7,7 +7,11 @@ const store = configureStore({
     reducer: {
         vacationsState: vacationsReducer,
         authState: authReducer
-    }
+    },
+    middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 

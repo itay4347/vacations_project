@@ -41,8 +41,9 @@ export const updateVacationAsync = async (vacation:Vacation):Promise<Vacation> =
     formData.append('endDate',vacation.endDate);
     formData.append('price',vacation.price.toString());
     formData.append('image',vacation.image[0]);
+    formData.append('imagName',vacation.imageName);
 
-    const response = await axios.put<Vacation>(`/vacations/${vacation.id}`);
+    const response = await axios.put<Vacation>(`/vacations/${vacation.id}`,formData);
     const updatedVacation = response.data;
 
     return new Promise((resolve,reject) => {
@@ -55,10 +56,4 @@ export const updateVacationAsync = async (vacation:Vacation):Promise<Vacation> =
 export const deleteVacationAsync = async (id:number) => {
     await axios.delete(`/vacations/${id}`);
 
-
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(true);
-        }, 500);
-    });
 }

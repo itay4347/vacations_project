@@ -1,1 +1,63 @@
-.EditVacation {}
+.EditVacation {
+    
+    margin: 0 auto;
+    padding: 20px;
+    width: 550px;
+    height: 70vh;
+
+    h2{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    input{
+        margin-bottom: 10px;
+    }
+
+    button{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__loaderContainer{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
+    &__imgContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        
+      
+        img {
+          max-width: 60%; 
+          height: 150px;
+        }
+      }
+
+      &__fileInputContainer{
+        display: flex;
+        justify-content: center;
+
+        input[type="file"]{
+            display: none;
+        }
+        label{
+            cursor: pointer;
+            border: 2px solid gray;
+            border-radius: 10px;
+            padding: 5px;
+            color: white;
+            text-shadow: 2px 2px 4px rgb(150, 135, 135);
+            background-color: rgb(72, 68, 68);
+            opacity: 0.7;
+        }
+      }
+}
+    
+
+
