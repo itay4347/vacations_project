@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import { deleteVacationAsync } from '../../../../fetch/vacationsService';
 import { useDispatch } from 'react-redux';
 import * as vacationReducer from '../../vacationsSlice';
+import Alert from '../../../AlertArea/Alert/Alert';
+import Button from '../../../Button/Button';
 
 
 interface VacationItemProps {
@@ -19,6 +21,9 @@ interface VacationItemProps {
 const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
 
   const [isLoading,setIsLoading] = useState<Boolean>(false);
+  const [showError,setShowError] = useState<boolean>(false);
+  const [error,setError] = useState<any>(null);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
@@ -38,11 +43,23 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
       await deleteVacationAsync(id);
       dispatch(vacationReducer.deleteVacation(id));
     }catch(err){
-      console.log(err);
+      setError(err);
+      setShowError(true)
     }finally{
       setIsLoading(false);
     }
+  }
 
+  const displayErrorMessage = () => {
+    if(error && showError){
+      return(
+        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+          <Button onClick={() => {
+            window.location.reload();
+          }}>Try again</Button>
+        </Alert>
+      );
+    }
   }
 
   const renderVacationCardRoleBased = () => {
@@ -91,7 +108,12 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
   }
   
   
-  return renderVacationCardRoleBased()
+  return (
+    <>
+        {renderVacationCardRoleBased()}
+        {displayErrorMessage()}
+    </>
+  )
 }
 
 export default VacationItem;

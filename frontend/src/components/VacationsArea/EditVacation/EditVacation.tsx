@@ -11,15 +11,19 @@ import validation from './validation';
 import Button from '../../Button/Button';
 import { BASE_API_URL } from '../../../config';
 import { format } from 'date-fns';
+import Alert from '../../AlertArea/Alert/Alert';
+import Loader from '../../Loader/Loader';
 
 interface EditVacationProps {}
 
 const EditVacation: FC<EditVacationProps> = () => {
   const {vacation} = useAppSelector(state => state.vacationsState);
   const {register,handleSubmit,formState,setValue,getValues} = useForm<Vacation>();
-  const [isLoading,setIsLoading] = useState<Boolean>(false);
+  const [isLoading,setIsLoading] = useState<boolean>(false);
   const [file,setFile] = useState<File | null>(null);
   const [imageSelectedUrl,setImgaeSelectedUrl] = useState<string>(`${BASE_API_URL}/vacations/images/${vacation?.imageName}`);
+  const [error,setError] = useState<any>(null);
+  const [showError,setShowError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   
   const navigate = useNavigate();
@@ -30,7 +34,8 @@ const EditVacation: FC<EditVacationProps> = () => {
       dispatch(updateVacation(vacation));
       navigate('/vacations');
     }catch(err){
-      console.log(err);
+      setError(err);
+      setShowError(true);
     }finally{
       setIsLoading(false);
     }
@@ -64,8 +69,29 @@ const EditVacation: FC<EditVacationProps> = () => {
     }
   },[vacation,setValue]);
 
+  const displayErrorMessage = () => {
+    if(error && showError){
+      return(
+        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+          <Button onClick={() => {
+            window.location.reload();
+          }}>Try again</Button>
+        </Alert>
+      );
+    }
+  }
+
+  if(isLoading){
+    return(
+      <div className={styles.AddVacation__loaderContainer}>
+        <Loader/>
+      </div>
+    )
+  }
+
   return(
     <div className={styles.EditVacation}>
+      {displayErrorMessage()}
       <h2>Edit Vacation</h2>
       <form onSubmit={handleSubmit(handleEditVacation)}>
           <FormGroupWithError error={formState.errors.destination?.message}>

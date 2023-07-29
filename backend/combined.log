@@ -655,3 +655,9 @@
 {"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
 {"level":"error","message":"Unauthorized","service":"user-service"}
 {"level":"error","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 42' at line 7","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\lhbdslkjfhsuljk'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\lhbdslkjfhsuljk'","service":"user-service"}
+{"level":"error","message":"ENOENT: no such file or directory, stat 'C:\\‏‏project 3- vacations\\backend\\src\\1-assets\\images\\lhbdslkjfhsuljk'","service":"user-service"}
+{"level":"error","message":"email test1@gmail.com is allready taken","service":"user-service"}
+{"level":"error","message":"Unauthorized","service":"user-service"}
+{"level":"error","message":"Route /favicon.ico not exist","service":"user-service"}

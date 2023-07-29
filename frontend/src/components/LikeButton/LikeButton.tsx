@@ -6,6 +6,8 @@ import { addLikedVacationAsync, checkIfUserLikedVacationAsync, deleteLikedVacati
 import LikedVacation from '../../models/LikedVacation';
 import { likeVacation, unlikeVacation } from '../../auth/authSlice';
 import { addLikeToVacation, deleteLikeToVacation } from '../VacationsArea/vacationsSlice';
+import Alert from '../AlertArea/Alert/Alert';
+import Button from '../Button/Button';
 
 interface LikeButtonProps {
   userId:number;
@@ -20,11 +22,10 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
     vacationId
   };
 
-
-
   const [isLiked,setIsLiked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-
+  const [error, setError] = useState<any>(null);
+  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     const checkIfUserLikedVacation = async () => {
@@ -35,7 +36,8 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
           setIsLiked(checkIfFollowed);
         }
       }catch(err){
-        console.log(err);
+        setError(err);
+        setShowError(true);
       }
     }
     checkIfUserLikedVacation();
@@ -56,8 +58,21 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
     }
   }
 
+  const displayErrorMessage = () => {
+    if(error && showError){
+      return(
+        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+          <Button onClick={() => {
+            window.location.reload();
+          }}>Try again</Button>
+        </Alert>
+      );
+    }
+  }
+
   return(
     <label className={styles.LikeButton}>
+      {displayErrorMessage()}
       <input type="checkbox" checked={isLiked} onChange={() => handleLikeClick(vacationId)}/>
       <span>Like{followersCount}</span>
     </label>

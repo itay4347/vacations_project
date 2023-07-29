@@ -9,6 +9,8 @@ import { setLikedVacations } from '../../../auth/authSlice';
 import User from '../../../models/User';
 import { NavLink } from 'react-router-dom';
 import Role from '../../../models/Role';
+import Alert from '../../AlertArea/Alert/Alert';
+import Button from '../../Button/Button';
 
 
 interface VacationsProps {
@@ -17,6 +19,8 @@ interface VacationsProps {
 
 const Vacations: FC<VacationsProps> = ({vacations}) => {
 
+  const [error,setError] = useState<any>(null);
+  const [showError,setShowError] = useState<boolean>(false);
   const {user} = useAppSelector(state => state.authState);
   const dispatch = useAppDispatch();
 
@@ -25,14 +29,25 @@ const Vacations: FC<VacationsProps> = ({vacations}) => {
       try{
         const vacationsFollowed = await getVacationsLikedPerUserAsync(user?.id as number);
         dispatch(setLikedVacations(vacationsFollowed));
-        
-
       }catch(err){
-        console.log(err);
+        setError(err);
+        setShowError(true);
       }
     }
     getVacationsFollowed();
   },[]);
+
+  const displayErrorMessage = () => {
+    if(error && showError){
+      return(
+        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+          <Button onClick={() => {
+            window.location.reload();
+          }}>Try again</Button>
+        </Alert>
+      );
+    }
+  }
 
   const renderVacations = () => {
     return vacations.map((vacation) => {

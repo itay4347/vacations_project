@@ -1,7 +1,11 @@
 import express, {Request,Response,NextFunction} from 'express';
 import * as followersLogic from '../5-logic/followers-logic';
 import LikedVacation from '../4-models/LikedVacation';
-
+import verifyLoggedIn from '../3-middleware/verify-logged-in';
+import { isUserAdmin } from '../3-middleware/isUserAdmin';
+import {parse as json2csv} from 'json2csv';
+import path from 'path'
+import fsPromises from 'fs/promises'
 
 const router = express.Router();
 
@@ -81,6 +85,29 @@ router.delete(
         const vacationId = +request.params.vacationId;
         await followersLogic.deleteLikedVacation(userId,vacationId);
         response.status(202).send('follower has successfully deleted');
+    }catch(err){
+        next(err);
+    }
+});
+
+router.get('/followers/csv', async (request:Request,response:Response,next:NextFunction) => {
+    try{
+
+        const followersCount = await followersLogic.getFollowersCountByDestination();
+        const fields = ["destination","followersCount"];
+        const csv = json2csv(followersCount,{fields});
+        console.log(csv);
+    
+        const dateTime = Date.now();
+        const dirPath = path.join(__dirname,"..","..","public","exports");
+        const filePath = path.join(dirPath,`followersCount-${dateTime}.csv`);
+    
+        await fsPromises.mkdir(dirPath,{recursive:true});
+        await fsPromises.writeFile(filePath,csv);
+
+        response.setHeader("Content-Type","text/csv");
+        response.setHeader("Content-Disposition",`attachment; fileName=followers-${dateTime}.csv`);
+        response.download(filePath);
     }catch(err){
         next(err);
     }

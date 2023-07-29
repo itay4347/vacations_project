@@ -11,6 +11,7 @@ import FormGroupWithError from '../../FormGroupWithError/FormGroupWithError';
 import Button from '../../Button/Button';
 import Loader from '../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
+import Alert from '../../AlertArea/Alert/Alert';
 
 interface AddVacationProps {
 
@@ -19,7 +20,9 @@ interface AddVacationProps {
 const AddVacation: FC<AddVacationProps> = () => {
 
   const {register,handleSubmit,formState} = useForm<Vacation>();
-  const [isLoading,setIsLoading] = useState<Boolean>(false);
+  const [isLoading,setIsLoading] = useState<boolean>(false);
+  const [showError,setShowError] = useState<boolean>(false);
+  const [error,setError] = useState<any>(null);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -30,9 +33,22 @@ const AddVacation: FC<AddVacationProps> = () => {
       dispatch(addVacation(vacation));
       navigate('/vacations')
     }catch(err){
-      console.log(err);
+      setError(err);
+      setShowError(true);
     }finally{
       setIsLoading(false);
+    }
+  }
+
+  const displayErrorMessage = () => {
+    if(error && showError){
+      return(
+        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+          <Button onClick={() => {
+            window.location.reload();
+          }}>Try again</Button>
+        </Alert>
+      );
     }
   }
 
@@ -48,6 +64,7 @@ const AddVacation: FC<AddVacationProps> = () => {
   return (
     
       <div className={styles.AddVacation}>
+        {displayErrorMessage()}
         <h2>Add Vacation</h2>
         <form onSubmit={handleSubmit(handleAddVacation)}>
           <FormGroupWithError error={formState.errors.destination?.message}>

@@ -5,6 +5,7 @@ import LikedVacation from "../4-models/LikedVacation";
 import Vacation from "../4-models/Vacation";
 import { OkPacket } from "mysql";
 
+
 export const getVacationsLikedPerUser = async (userId:number):Promise<Vacation[]> => {
     const sql = `SELECT f.userId, f.vacationId, v.destination, v.description, v.startDate, v.endDate, v.price, v.imageName
                  FROM followers AS f
@@ -69,3 +70,15 @@ export const deleteLikedVacation = async (userId:number,vacationId:number):Promi
 
     return await dal.execute(sql,[userId,vacationId]);
 }
+
+export const getFollowersCountByDestination = async ():Promise<any[]> => {
+    const sql = `
+            SELECT vacations.destination, COUNT(followers.userId) AS followersCount
+            FROM vacations
+            LEFT JOIN followers ON vacations.id = followers.vacationId
+            GROUP BY vacations.id;
+    `;
+
+    return await dal.execute(sql);
+}
+

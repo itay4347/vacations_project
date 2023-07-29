@@ -62,11 +62,11 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
 
     const vacations = await getAllVacations();
 
-    const vacationIndex = vacations.findIndex((v) => v.id === vacation.id);
+    const updatedVacationIndex = vacations.findIndex((v) => v.id === vacation.id);
       
     
     if(vacation.image){
-        const currentImage = vacations[vacationIndex].imageName;
+        const currentImage = vacations[updatedVacationIndex].imageName;
         console.log(currentImage);
         if(fs.existsSync(`${imagePath}/${currentImage}`)){
             fs.unlinkSync(`${imagePath}/${currentImage}`);
@@ -77,7 +77,7 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
         delete vacation.image;
 
     }
-    vacations[vacationIndex] = vacation;
+    vacations[updatedVacationIndex] = vacation;
 
     
 
@@ -112,22 +112,6 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
             throw new ResourceNotFoundError(id);
             }
         }
-
-        
-
-        // if(!vacation.imageName){
-        //     params.push(id);
-        // }else{
-        //     params.push(vacation.imageName)
-        //     params.push(id)
-        // }
-        
-
-        
-    
-
-
-    
 
     return vacation;
 

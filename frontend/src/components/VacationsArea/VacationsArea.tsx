@@ -8,6 +8,8 @@ import Loader from '../Loader/Loader';
 import Vacations from './Vacations/Vacations';
 import Pagination from '../Pagination/Pagination';
 import { getFollowersCountAsync } from '../../fetch/followersService';
+import Alert from '../AlertArea/Alert/Alert';
+import Button from '../Button/Button';
 
 
 interface VacationsAreaProps {}
@@ -17,6 +19,8 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
   const [showLoggedInMessage,setShowLoggedInMessage] = useState(true);
   const [isLoading,setIsLoading] = useState(false);  
   const [currentPage,setCurrentPage] = useState(1);
+  const [error,setError] = useState<any>(null);
+  const [showError,setShowError] = useState<boolean>(false);
   
   const dispatch = useAppDispatch();
   const {vacations} = useAppSelector(state => state.vacationsState);
@@ -70,13 +74,26 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
         
 
       }catch(err){
-        console.log(err);
+        setError(err);
+        setShowError(true);
       }finally{
         setIsLoading(false);
       }
     }
     getVacations();
   },[]);
+
+  const displayErrorMessage = () => {
+    if(error && showError){
+      return(
+        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+          <Button onClick={() => {
+            window.location.reload();
+          }}>Try again</Button>
+        </Alert>
+      );
+    }
+  }
 
   const vacationsInOnePage = vacations.slice(firstVacationIndexInOnePage,lastVacationIndexInOnePage);
   if(isLoading){
@@ -88,6 +105,7 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
   }
   return(
     <div className={styles.VacationsArea}>
+      {displayErrorMessage()}
       {clearLoggedInMessage()}
       <Vacations vacations={vacationsInOnePage}/>
       <Pagination 
