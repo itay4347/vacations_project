@@ -1,15 +1,17 @@
-import React, { FC, useState,useEffect } from 'react';
+import React, { ChangeEvent,FC, useState,useEffect } from 'react';
 import styles from './VacationsArea.module.scss';
 import LoggedInAlert from '../AlertArea/LoggedInAlert/LoggedInAlert';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { getVacationsAsync } from '../../fetch/vacationsService';
+import { getAllActiveVacationsAsync, getVacationsAsync, getVacationsNotStartedAsync } from '../../fetch/vacationsService';
 import { setVacations } from './vacationsSlice';
 import Loader from '../Loader/Loader';
 import Vacations from './Vacations/Vacations';
 import Pagination from '../Pagination/Pagination';
-import { getFollowersCountAsync } from '../../fetch/followersService';
+import { getFollowersCountAsync, getVacationsLikedPerUserAsync } from '../../fetch/followersService';
 import Alert from '../AlertArea/Alert/Alert';
 import Button from '../Button/Button';
+import Vacation from '../../models/Vacation';
+import { setLikedVacations } from '../../auth/authSlice';
 
 
 interface VacationsAreaProps {}
@@ -24,11 +26,12 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
   
   const dispatch = useAppDispatch();
   const {vacations} = useAppSelector(state => state.vacationsState);
+  
 
-  const vacationsPerPage = 10;
-  const lastVacationIndexInOnePage = currentPage * vacationsPerPage;
-  const firstVacationIndexInOnePage = lastVacationIndexInOnePage - vacationsPerPage;
-
+  // const vacationsPerPage = 10;
+  // const lastVacationIndexInOnePage = currentPage * vacationsPerPage;
+  // const firstVacationIndexInOnePage = lastVacationIndexInOnePage - vacationsPerPage;
+  // const vacationsInOnePage = vacations.slice(firstVacationIndexInOnePage,lastVacationIndexInOnePage);
 
 
   useEffect(() => {
@@ -95,7 +98,7 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
     }
   }
 
-  const vacationsInOnePage = vacations.slice(firstVacationIndexInOnePage,lastVacationIndexInOnePage);
+  
   if(isLoading){
     return(
       <div className={styles.VacationsArea__loaderContainer}>
@@ -107,12 +110,12 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
     <div className={styles.VacationsArea}>
       {displayErrorMessage()}
       {clearLoggedInMessage()}
-      <Vacations vacations={vacationsInOnePage}/>
-      <Pagination 
+      <Vacations vacations={vacations}/>
+      {/* <Pagination 
       totalVacations={vacations.length}
       vacationsPerPage={vacationsPerPage}
       setCurrentPage={setCurrentPage}
-       />
+       /> */}
     </div>
   );
 }

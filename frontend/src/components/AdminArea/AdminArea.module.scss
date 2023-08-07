@@ -1,0 +1,38 @@
+.AdminArea {
+
+    display: flex;
+    gap: 15px;
+    justify-content: end;
+    width: 650px;
+    position: fixed;
+    z-index: 1001;
+    right: 42px;
+    top: 125px;
+
+    a{
+        width: 160px;
+        height: 60px;
+        font-size: 16px;
+        letter-spacing: 2.5px;
+        font-weight: bold;
+        color: rgb(92, 73, 48);
+        background: linear-gradient(to bottom, rgb(231, 223, 223),rgb(221, 212, 212),rgb(208, 199, 199));
+        border: 2px solid rgb(150, 138, 122);
+        border-radius: 37px;
+        display: flex;
+        text-decoration: none;
+        outline: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        box-shadow: 3px 3px 6px;
+        
+
+        &:hover{
+            background:rgb(244, 237, 237);
+            transform: scale(1.1);
+            box-shadow: 6px 6px 12px;
+        }
+    }
+}

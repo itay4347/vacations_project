@@ -8,13 +8,13 @@
     border: 1px solid transparent;
     padding: 8px 14px;
     font-size: 18px;
-    border-radius: 4px;
+    border-radius: 10px;
     color: rgba(0, 0, 0, 0.492);
     background-color: rgb(198, 186, 186);
     border-color: #000000;
 
     &:hover {
-        background:linear-gradient(to right, rgb(143, 211, 216),rgb(123, 210, 209),rgb(99, 193, 227));
+        background-color: rgb(244, 237, 237);
         color: rgba(0, 0, 0, 0.492);
         border-color: #000000;
         transform: scale(1.1);

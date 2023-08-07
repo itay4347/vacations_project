@@ -37,3 +37,8 @@ export const deleteLikedVacationAsync = async (userId:number,vacationId:number):
     const response = await axios.delete(`/followers/${userId}/vacations/${vacationId}`);
     return response.data;
 }
+
+export const downLoadCsvFile = async ():Promise<Blob> => {
+    const response = await axios.get(`/followers/csv`);
+    return response.data;
+}

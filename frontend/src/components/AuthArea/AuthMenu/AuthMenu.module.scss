@@ -1,16 +1,21 @@
 .AuthMenu {
 
     font-size: 17px;
+    color: rgb(92, 73, 48);
 
     
     & > a{
         display: inline-block;
         padding: 5px 10px;
         background-color: #eaeaea;
-        color: #333;
+        color: rgb(92, 73, 48);
         text-decoration: none;
-        border: 2px solid rgb(46, 149, 228);
+        border: 2px solid rgb(150, 138, 122);
         border-radius: 5px;
         cursor: pointer;
+
+        &:hover{
+          font-weight: bold;
+        }
       }
     }

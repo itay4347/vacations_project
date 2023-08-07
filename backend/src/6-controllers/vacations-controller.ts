@@ -56,6 +56,24 @@ router.delete("/vacations/:id", [verifyLoggedIn,isUserAdmin], async (request:Req
     }catch(err:any){
         next(err);
     }
+});
+
+router.get("/vacations/start", async (request:Request,response:Response,next:NextFunction) => {
+    try{
+        const vacationsNotStarted = await vacationLogic.getVacationsByStartingDate();
+        response.json(vacationsNotStarted);
+    }catch(err:any){
+        next(err);
+    }
+});
+
+router.get("/vacations/active", async (request:Request,response:Response,next:NextFunction) => {
+    try{
+        const activeVacations = await vacationLogic.getAllActiveVacations();
+        response.json(activeVacations);
+    }catch(err:any){
+        next(err);
+    }
 })
 
 

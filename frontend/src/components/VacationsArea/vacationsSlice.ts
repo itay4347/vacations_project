@@ -36,6 +36,7 @@ export const vacationSlice = createSlice({
             if (indexToDelete >= 0) {
                 state.vacations.splice(indexToDelete, 1);
             }
+           
         },
         setFollowersPerVacation: (state,{payload:likesCount}:PayloadAction<Followers_Count>) => {
             const {vacationId,followersCount} = likesCount;
@@ -50,6 +51,7 @@ export const vacationSlice = createSlice({
 
             if(vacationLikedIndex >= 0){
                 state.vacations[vacationLikedIndex].followersCount += 1;
+                state.vacation = state.vacations[vacationLikedIndex];
             }
         },
         deleteLikeToVacation: (state, {payload:vacationId}:PayloadAction<number>) => {
@@ -57,6 +59,7 @@ export const vacationSlice = createSlice({
 
             if(vacationUnlikedIndex >= 0){
                 state.vacations[vacationUnlikedIndex].followersCount -= 1;
+                state.vacation = state.vacations[vacationUnlikedIndex];
             }
         }
     }

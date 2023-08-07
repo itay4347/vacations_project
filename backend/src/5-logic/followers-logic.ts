@@ -7,10 +7,12 @@ import { OkPacket } from "mysql";
 
 
 export const getVacationsLikedPerUser = async (userId:number):Promise<Vacation[]> => {
-    const sql = `SELECT f.userId, f.vacationId, v.destination, v.description, v.startDate, v.endDate, v.price, v.imageName
-                 FROM followers AS f
-                 INNER JOIN vacations AS v ON f.vacationId = v.id
-                 WHERE f.userId = ?;`;
+    const sql = `SELECT vacations.*, COUNT(followers.vacationId) AS followersCount
+                 FROM vacations
+                 LEFT JOIN followers ON followers.vacationId = vacations.id
+                 WHERE followers.userId = ?
+                 GROUP BY vacations.id
+                 ORDER BY vacations.startDate;`;
 
     const vacationLikedByUser = await dal.execute<Vacation[]>(sql,[userId]);
     return vacationLikedByUser;

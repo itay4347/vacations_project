@@ -20,7 +20,6 @@ interface VacationItemProps {
 
 const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
 
-  const [isLoading,setIsLoading] = useState<Boolean>(false);
   const [showError,setShowError] = useState<boolean>(false);
   const [error,setError] = useState<any>(null);
 
@@ -37,16 +36,19 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
   
 
   const deleteVacation = async () => {
-    setIsLoading(true);
+
     console.log(id)
     try{
-      await deleteVacationAsync(id);
-      dispatch(vacationReducer.deleteVacation(id));
+      const success = await deleteVacationAsync(id);
+      if(success){
+        dispatch(vacationReducer.deleteVacation(id));
+      }
     }catch(err){
+      console.log(err);
       setError(err);
       setShowError(true)
     }finally{
-      setIsLoading(false);
+
     }
   }
 
@@ -66,16 +68,16 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
 
      if(user?.role === Role.User){
       return(
-        <li className={`blueBackground ${styles.VacationItem}`}>
+        <li className={styles.VacationItem}>
         <div className={styles.VacationItem__imgContainer}>
           <img src={imgSrc} alt=''/>
-          <h3>{destination}</h3>
+          <h3 className='headerFont'>{destination}</h3>
           <LikeButton vacation={vacation} userId={user.id!}/>
         </div>
         
-        <div> <i className='fas fa-calendar'></i> {startDateString} - {endDateString}</div>
-        <div className={styles.VacationItem__descriptionContainer}>{description}</div>
-        <div className={styles.VacationItem__priceContainer}>
+        <div className='headerFont'> <i className='fas fa-calendar'></i> {startDateString} - {endDateString}</div>
+        <div className={`textFont ${styles.VacationItem__descriptionContainer}`}>{description}</div>
+        <div className={`headerFont ${styles.VacationItem__priceContainer}`}>
           {price}
           <span>$</span>
         </div>
@@ -91,7 +93,9 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
           dispatch(vacationReducer.setVacation(vacation));
           navigate('/editVacation');
         }}>&#9998; Edit</button>
-        <button onClick={() => deleteVacation()}><i className="fa fa-trash" aria-hidden="true"></i> Delete</button>
+        <button onClick={deleteVacation}>
+          <i className="fa fa-trash"></i> Delete
+        </button>
         </div>
         <img src={imgSrc} alt=''/>
         <h3>{destination}</h3>

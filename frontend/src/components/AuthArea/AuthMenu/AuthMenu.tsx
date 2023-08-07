@@ -22,13 +22,13 @@ const AuthMenu: FC<AuthMenuProps> = () => {
     if(user){
       return(
         <>
-          <span>Hello {user.firstName} {user.lastName}</span>
+          <span className='headerFont'>Hello {user.firstName} {user.lastName} </span>
           <NavLink onClick={logoutHandler} to="/">Logout</NavLink>
         </>
       )
     }
     return(
-      <span>hello Guest, please Login to proceed</span>
+      <span className='headerFont'>hello Guest, please Login to proceed</span>
     );
     
     

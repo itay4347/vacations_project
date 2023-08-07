@@ -4,12 +4,12 @@ import axios from "../axios";
 export const getVacationsAsync = async ():Promise<Vacation[]> => {
     const response = await axios.get<Vacation[]>('/vacations');
     const vacations = response.data
-
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            resolve(vacations);
-        },750)
-    });
+    return vacations;
+    // return new Promise((resolve,reject) => {
+    //     setTimeout(() => {
+    //         resolve(vacations);
+    //     },750)
+    // });
 }
 
 export const addVacationAsync = async (vacation:Vacation):Promise<Vacation> => {
@@ -53,7 +53,24 @@ export const updateVacationAsync = async (vacation:Vacation):Promise<Vacation> =
     });
 } 
 
-export const deleteVacationAsync = async (id:number) => {
-    await axios.delete(`/vacations/${id}`);
+export const deleteVacationAsync = async (id:number):Promise<boolean> => {
+    try{
+        await axios.delete(`/vacations/${id}`);
+        return true;
+    }catch(err){
+        throw err;
+    }
+
+}
+
+export const getAllActiveVacationsAsync = async ():Promise<Vacation[]> => {
+    const response = await axios.get('/vacations/active');
+    return response.data;
+
+}
+
+export const getVacationsNotStartedAsync = async ():Promise<Vacation[]> => {
+    const response = await axios.get('/vacations/start');
+    return response.data;
 
 }

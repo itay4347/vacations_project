@@ -18,8 +18,7 @@ interface EditVacationProps {}
 
 const EditVacation: FC<EditVacationProps> = () => {
   const {vacation} = useAppSelector(state => state.vacationsState);
-  const {register,handleSubmit,formState,setValue,getValues} = useForm<Vacation>();
-  const [isLoading,setIsLoading] = useState<boolean>(false);
+  const {register,handleSubmit,formState,setValue} = useForm<Vacation>();
   const [file,setFile] = useState<File | null>(null);
   const [imageSelectedUrl,setImgaeSelectedUrl] = useState<string>(`${BASE_API_URL}/vacations/images/${vacation?.imageName}`);
   const [error,setError] = useState<any>(null);
@@ -28,7 +27,6 @@ const EditVacation: FC<EditVacationProps> = () => {
   
   const navigate = useNavigate();
   const handleEditVacation = async (vacation:Vacation) => {
-    setIsLoading(true);
     try{
       await updateVacationAsync(vacation);
       dispatch(updateVacation(vacation));
@@ -37,7 +35,6 @@ const EditVacation: FC<EditVacationProps> = () => {
       setError(err);
       setShowError(true);
     }finally{
-      setIsLoading(false);
     }
   }
 
@@ -52,6 +49,12 @@ const EditVacation: FC<EditVacationProps> = () => {
     }
 
   },[file]);
+
+  const handleFileChange = (e:ChangeEvent<HTMLInputElement>) => {
+    if(e.target.files && e.target.files.length > 0){
+      setFile(e.target.files[0]);
+    }
+  }
 
   useEffect(() => {
     if(vacation){
@@ -81,19 +84,12 @@ const EditVacation: FC<EditVacationProps> = () => {
     }
   }
 
-  if(isLoading){
-    return(
-      <div className={styles.AddVacation__loaderContainer}>
-        <Loader/>
-      </div>
-    )
-  }
 
   return(
     <div className={styles.EditVacation}>
       {displayErrorMessage()}
-      <h2>Edit Vacation</h2>
-      <form onSubmit={handleSubmit(handleEditVacation)}>
+      <h2 className='headerFont'>Edit Vacation</h2>
+      <form className='textFont' onSubmit={handleSubmit(handleEditVacation)}>
           <FormGroupWithError error={formState.errors.destination?.message}>
             <label>Destination:</label>
             <input type="text" {...register('destination',validation.destination)} />
@@ -129,10 +125,10 @@ const EditVacation: FC<EditVacationProps> = () => {
                 <input id='vacationImage' 
                       type="file" 
                       accept='image/*' 
-                      {...register('image')}/>
+                      {...register('image')}
+                      // onChange={handleFileChange}  
+                      />
               </div>
-              {/* <label>change Image</label> */}
-              {/* <input type="file" accept='image/*' {...register('image',validation.image)} /> */}
             </FormGroupWithError>
           <Button>Edit Vacation</Button>
         </form>

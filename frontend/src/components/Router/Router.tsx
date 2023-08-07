@@ -8,6 +8,7 @@ import Login from '../AuthArea/Login/Login';
 import VacationsArea from '../VacationsArea/VacationsArea';
 import AddVacation from '../VacationsArea/AddVacation/AddVacation';
 import EditVacation from '../VacationsArea/EditVacation/EditVacation';
+import LikeChart from '../LikeChart/LikeChart';
 
 
 interface RouterProps { }
@@ -19,16 +20,15 @@ const Router: FC<RouterProps> = () => (
 
         <Route path='/login' element={<Login/>}/>
 
-         
-         <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
 
-         <Route path="/vacations" element={<VacationsArea />} />
+        <Route path="/vacations" element={<VacationsArea />} />
 
         <Route path="/addVacation" element={<AddVacation />} />
 
         <Route path='/editVacation' element={<EditVacation/>}/>
 
-        
+        <Route path='/followersChart' element={<LikeChart/>}/>
 
 
 

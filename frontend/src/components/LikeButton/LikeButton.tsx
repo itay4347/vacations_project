@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../hooks';
 import { addLikedVacationAsync, checkIfUserLikedVacationAsync, deleteLikedVacationAsync } from '../../fetch/followersService';
 import LikedVacation from '../../models/LikedVacation';
 import { likeVacation, unlikeVacation } from '../../auth/authSlice';
-import { addLikeToVacation, deleteLikeToVacation } from '../VacationsArea/vacationsSlice';
+import { addLikeToVacation, deleteLikeToVacation, setFollowersPerVacation } from '../VacationsArea/vacationsSlice';
 import Alert from '../AlertArea/Alert/Alert';
 import Button from '../Button/Button';
 
@@ -22,10 +22,12 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
     vacationId
   };
 
+
   const [isLiked,setIsLiked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const [error, setError] = useState<any>(null);
   const [showError, setShowError] = useState(false);
+  const [likesCount,setlikesCount] = useState<number>(followersCount);
 
   useEffect(() => {
     const checkIfUserLikedVacation = async () => {
@@ -43,18 +45,21 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
     checkIfUserLikedVacation();
   },[]);
 
+  
+
   const handleLikeClick = async (vacationId:number) => {
     if(!isLiked){
-      console.log('button clicked for', vacationId);
-      await addLikedVacationAsync(likedVacation);
       dispatch(likeVacation(vacation));
       setIsLiked(true);
       dispatch(addLikeToVacation(vacationId));
+      await addLikedVacationAsync(likedVacation);
+      setlikesCount((prevLikesCount) => prevLikesCount + 1);
     }else{
-      await deleteLikedVacationAsync(userId,vacationId);
       dispatch(unlikeVacation(vacationId));
       setIsLiked(false);
       dispatch(deleteLikeToVacation(vacationId));
+      await deleteLikedVacationAsync(userId,vacationId);
+      setlikesCount((prevLikesCount) => prevLikesCount - 1);
     }
   }
 
@@ -74,7 +79,7 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
     <label className={styles.LikeButton}>
       {displayErrorMessage()}
       <input type="checkbox" checked={isLiked} onChange={() => handleLikeClick(vacationId)}/>
-      <span>Like{followersCount}</span>
+      <span className='headerFont'>Like {likesCount}</span>
     </label>
   )
 };

@@ -1,7 +1,7 @@
 .VacationItem {
     width: 270px;
     height: 350px;
-    border: 3px solid rgba(20, 20, 20, 0.36);
+    border: 3px solid rgb(150, 138, 122);
     border-radius: 5px;
     box-shadow: 3px 3px 8px;
 
@@ -36,14 +36,16 @@
             position: absolute;
             bottom: 10px;
             left: 5px;
+            letter-spacing: 2px;
         }
     }
 
     &__descriptionContainer{
         height: 57%;
         overflow: auto;
-        background: linear-gradient(to bottom, rgb(231, 223, 223),rgb(221, 212, 212),rgb(208, 199, 199));
+        background-color: #e8cfcf;
         border-radius: 5px;
+        color: rgb(92, 73, 48);
     }
     &__priceContainer{
         display: flex;
@@ -53,13 +55,11 @@
         color:white;
         text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
         font-size: 17px;
-
-        
         span{
-            font-size: 10px;
+            font-size: 13px;
             position: absolute;
-            left:141px;
-            top: 6px;
+            left:151px;
+            top: 4px;
             color:white;
             text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
         }

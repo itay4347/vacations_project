@@ -11,6 +11,7 @@ import validation from './validation';
 import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../../Loader/Loader';
 import Alert from '../../AlertArea/Alert/Alert';
+import { BASE_API_URL } from '../../../config';
 
 
 interface RegisterProps {}
@@ -61,7 +62,9 @@ const Register: FC<RegisterProps> = () => {
   }
 
   return(
-    <div className={`Box ${styles.Register}`}>
+    <div className={styles.Register}>
+      <img src={`${BASE_API_URL}/vacations/images/background_image.jpg`} alt="" />
+    <div className={`Box ${styles.Register__registerBox}`}>
       {renderErrorMessage()}
       <h2>Register</h2>
       <form onSubmit={handleSubmit(handleRegister)}>
@@ -92,6 +95,9 @@ const Register: FC<RegisterProps> = () => {
         <br />
         <Link to='/'>Login</Link>
       </div>
+
+    </div>
+
       
     </div>
   )

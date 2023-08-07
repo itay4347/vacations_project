@@ -2,13 +2,15 @@
     display: flex;
     align-items: center;
     justify-content:space-between;
-    height:80px;
-    border:1px solid black;
+    height:100px;
+    background-color: #e8cfcf;
         &__authMenu{
         margin-right: 10px;
         }
-        h1{
-            width: 30%;
+        img{
+            width: 20%;
+            height: 100%;
+            
             margin-left: 20px;
 
 

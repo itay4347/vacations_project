@@ -11,6 +11,7 @@ import {login} from '../../../auth/authSlice';
 import { NavLink,useNavigate } from 'react-router-dom';
 import Loader from '../../Loader/Loader';
 import Alert from '../../AlertArea/Alert/Alert';
+import { BASE_API_URL } from '../../../config';
 
 
 
@@ -67,22 +68,20 @@ const Login: FC<LoginProps> = () => {
   }
   return (
     <div className={styles.Login}>
-      <p>welcome to <strong>Bon Voyage</strong>
+      <img src={`${BASE_API_URL}/vacations/images/background_image.jpg`} alt="" />
+      <p className='paragraphFont'>
+        welcome to
         <br />
-        Everybody love themselves a nice vacation.
-        <br />
-        whether its a relaxed holiday by the bitch, city travels or adventure around the nature of our world.
-        <br />
-        in this site, you can enjoy a big variaty of vacations and destination around the world for you to travel!
+        <strong className='headerFont'>Bon Voyage</strong>
         <br />
         please Login to see all the available vacations!
       </p>
 
       <div className={`Box ${styles.Login__loginBox}`}>
         {renderErrorMessage()}
-        <h2>Login</h2>
+        <h2 className='headerFont'>Login</h2>
         <br />
-        <form onSubmit={handleSubmit(handleLogin)}>
+        <form className='textFont' onSubmit={handleSubmit(handleLogin)}>
             <FormGroupWithError error={formState.errors.email?.message}>
               <label>Email</label>
               <input type="email" {...register('email',validation.email)} />

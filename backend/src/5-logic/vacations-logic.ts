@@ -9,7 +9,8 @@ const imagePath = './src/1-assets/images';
 
 export const getAllVacations = async ():Promise<Vacation[]> => {
     const sql = `
-        SELECT * FROM vacations ORDER BY startDate;
+    SELECT * FROM vacations
+    ORDER BY vacations.startDate;
     `;
 
     return await dal.execute<Vacation[]>(sql);
@@ -130,9 +131,33 @@ export const deleteVacation = async (id:number):Promise<void> => {
     }
 
     const sql = 'DELETE FROM vacations WHERE id = ?;';
-    await dal.execute(sql,[id]);
+    const info = await dal.execute<OkPacket>(sql,[id]);
+    if(info.affectedRows === 0){
+        throw new ResourceNotFoundError(id);
+    }
 
 }
 
+export const getVacationsByStartingDate = async ():Promise<Vacation[]> => {
 
+    const sql = `SELECT vacations.*, COUNT(followers.userId) AS followersCount
+                 FROM vacations
+                 LEFT JOIN followers ON vacations.id = followers.vacationId
+                 WHERE vacations.startDate > CURDATE()
+                 GROUP BY vacations.id
+                 ORDER BY vacations.startDate;`;
+
+    return await dal.execute(sql);
+}
+
+export const getAllActiveVacations = async ():Promise<Vacation[]> => {
+    const sql = `SELECT vacations.*, COUNT(followers.userId) AS followersCount
+                 FROM vacations
+                 LEFT JOIN followers ON vacations.id = followers.vacationId
+                 WHERE CURDATE() BETWEEN startDate AND endDate
+                 GROUP BY vacations.id
+                 ORDER BY vacations.startDate;`;
+    
+    return await dal.execute(sql);
+}
 

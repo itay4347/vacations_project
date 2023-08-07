@@ -65,8 +65,8 @@ const AddVacation: FC<AddVacationProps> = () => {
     
       <div className={styles.AddVacation}>
         {displayErrorMessage()}
-        <h2>Add Vacation</h2>
-        <form onSubmit={handleSubmit(handleAddVacation)}>
+        <h2 className='headerFont'>Add Vacation</h2>
+        <form className='textFont' onSubmit={handleSubmit(handleAddVacation)}>
           <FormGroupWithError error={formState.errors.destination?.message}>
             <label>Destination:</label>
             <input type="text" {...register('destination',validation.destination)} />

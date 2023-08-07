@@ -1,34 +1,39 @@
 .Vacations {
 
-    & > a{
-        position: fixed;
-        left: 12px;
-        bottom: 100px;
-        z-index: 1001;
-        width: 140px;
-        height: 70px;
-        font-size: 16px;
-        letter-spacing: 2.5px;
-        font-weight: bold;
-        color: #2f2c2c;
-        background: linear-gradient(to bottom, rgb(231, 223, 223),rgb(221, 212, 212),rgb(208, 199, 199));
-        border: 1px solid #302d2d;
-        border-radius: 37px;
-        display: flex;
-        text-decoration: none;
-        outline: none;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0;
-        
+    &__filter{
+        border: 3px solid rgb(150, 138, 122);
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px gray;
+        width: 450px;
+        height: 90px;
+        margin: 20px;
+        padding: 10px;
+        color: rgb(92, 73, 48);
 
-        &:hover{
-            background:linear-gradient(to right, rgb(143, 211, 216),rgb(123, 210, 209),rgb(99, 193, 227));
-            transform: scale(1.1);
-            box-shadow: 6px 6px 12px;
-        }
+
+        
+        .filters {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          
+          label {
+            margin-right: 10px;
+          }
+          
+          input {
+            margin-left: 6px;
+          }
+          
+          & > div {
+            display: flex;
+            align-items: center;
+          }
+          
     }
+    
+
 
     &__vacationsList{
         padding: 20px;
