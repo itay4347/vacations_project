@@ -1,8 +1,6 @@
 import express, {Request,Response,NextFunction} from 'express';
 import * as followersLogic from '../5-logic/followers-logic';
 import LikedVacation from '../4-models/LikedVacation';
-import verifyLoggedIn from '../3-middleware/verify-logged-in';
-import { isUserAdmin } from '../3-middleware/isUserAdmin';
 import {parse as json2csv} from 'json2csv';
 import path from 'path'
 import fsPromises from 'fs/promises'
