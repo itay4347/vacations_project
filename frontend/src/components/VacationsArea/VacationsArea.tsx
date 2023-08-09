@@ -12,45 +12,26 @@ import Alert from '../AlertArea/Alert/Alert';
 import Button from '../Button/Button';
 import Vacation from '../../models/Vacation';
 import { setLikedVacations } from '../../auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 interface VacationsAreaProps {}
 
 const VacationsArea: FC<VacationsAreaProps> = () => {
 
-  const [showLoggedInMessage,setShowLoggedInMessage] = useState(true);
   const [isLoading,setIsLoading] = useState(false);  
-  const [currentPage,setCurrentPage] = useState(1);
   const [error,setError] = useState<any>(null);
   const [showError,setShowError] = useState<boolean>(false);
   
   const dispatch = useAppDispatch();
   const {vacations} = useAppSelector(state => state.vacationsState);
-  
+  const {user} = useAppSelector(state => state.authState);
+  const navigate = useNavigate();
 
   // const vacationsPerPage = 10;
   // const lastVacationIndexInOnePage = currentPage * vacationsPerPage;
   // const firstVacationIndexInOnePage = lastVacationIndexInOnePage - vacationsPerPage;
   // const vacationsInOnePage = vacations.slice(firstVacationIndexInOnePage,lastVacationIndexInOnePage);
-
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLoggedInMessage(false);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
-  const clearLoggedInMessage = () => {
-    if(showLoggedInMessage){
-      return(
-      <LoggedInAlert/>
-      );
-    }
-  }
 
   useEffect(() => {
     const getVacations = async () => {
@@ -88,14 +69,18 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
 
   const displayErrorMessage = () => {
     if(error && showError){
+
       return(
-        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+        <Alert error={'you have to be logged in to access this page'} onClose={() => {setShowError(false)}}>
           <Button onClick={() => {
-            window.location.reload();
-          }}>Try again</Button>
+            navigate('/');
+          }}>
+            Login
+          </Button>
         </Alert>
-      );
+      )
     }
+    
   }
 
   
@@ -109,13 +94,7 @@ const VacationsArea: FC<VacationsAreaProps> = () => {
   return(
     <div className={styles.VacationsArea}>
       {displayErrorMessage()}
-      {clearLoggedInMessage()}
       <Vacations vacations={vacations}/>
-      {/* <Pagination 
-      totalVacations={vacations.length}
-      vacationsPerPage={vacationsPerPage}
-      setCurrentPage={setCurrentPage}
-       /> */}
     </div>
   );
 }

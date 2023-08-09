@@ -7,7 +7,7 @@ import { OkPacket } from "mysql";
 
 
 export const getVacationsLikedPerUser = async (userId:number):Promise<Vacation[]> => {
-    const sql = `SELECT vacations.*, COUNT(followers.vacationId) AS followersCount
+    const sql = `SELECT vacations.*
                  FROM vacations
                  LEFT JOIN followers ON followers.vacationId = vacations.id
                  WHERE followers.userId = ?

@@ -10,7 +10,6 @@ function App() {
     return <>
         <Header/>
         <Content/>
-        <Footer/>
     </>
 
 

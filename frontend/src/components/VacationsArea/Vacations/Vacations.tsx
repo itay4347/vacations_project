@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { getVacationsLikedPerUserAsync } from '../../../fetch/followersService';
 import { setLikedVacations } from '../../../auth/authSlice';
 import User from '../../../models/User';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Role from '../../../models/Role';
 import Alert from '../../AlertArea/Alert/Alert';
 import Button from '../../Button/Button';
@@ -32,7 +32,7 @@ const Vacations: FC<VacationsProps> = ({vacations}) => {
 
   const {user} = useAppSelector(state => state.authState);
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   const vacationsPerPage = 10;
   const lastVacationIndexInOnePage = currentPage * vacationsPerPage;
   const firstVacationIndexInOnePage = lastVacationIndexInOnePage - vacationsPerPage;
@@ -74,11 +74,16 @@ const Vacations: FC<VacationsProps> = ({vacations}) => {
         }
   
         let _filteredVacations:Vacation[] = [];
+        let _vacationsLikedByUser:Vacation[] = [];
         let vacationsLikedByUser:Vacation[] = []
         const vacationsNotStarted = await getVacationsNotStartedAsync();
         const activeVacations = await getAllActiveVacationsAsync();
         if(user?.id){
-          vacationsLikedByUser = await getVacationsLikedPerUserAsync(user.id);
+          _vacationsLikedByUser = await getVacationsLikedPerUserAsync(user.id);
+          vacationsLikedByUser = vacations.filter(vacation => {
+            return _vacationsLikedByUser.some(_vacationLikedByUser => _vacationLikedByUser.id === vacation.id);
+            
+          });
         }
         
   
@@ -121,16 +126,18 @@ const Vacations: FC<VacationsProps> = ({vacations}) => {
 
   const displayErrorMessage = () => {
     if(error && showError){
+
       return(
-        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+        <Alert error={'you have to be logged in to access this page'} onClose={() => {setShowError(false)}}>
           <Button onClick={() => {
-            window.location.reload();
-          }}>Try again</Button>
+            navigate('/');
+          }}>
+            Login
+          </Button>
         </Alert>
-      );
+      )
     }
   }
-
   const renderVacations = () => {
     if(vacationsInOnePage.length === 0){ 
       return <h3>No vacations found!</h3>

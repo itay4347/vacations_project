@@ -8,6 +8,7 @@ import { likeVacation, unlikeVacation } from '../../auth/authSlice';
 import { addLikeToVacation, deleteLikeToVacation, setFollowersPerVacation } from '../VacationsArea/vacationsSlice';
 import Alert from '../AlertArea/Alert/Alert';
 import Button from '../Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 interface LikeButtonProps {
   userId:number;
@@ -28,7 +29,7 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
   const [error, setError] = useState<any>(null);
   const [showError, setShowError] = useState(false);
   const [likesCount,setlikesCount] = useState<number>(followersCount);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const checkIfUserLikedVacation = async () => {
 
@@ -53,25 +54,28 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
       setIsLiked(true);
       dispatch(addLikeToVacation(vacationId));
       await addLikedVacationAsync(likedVacation);
-      setlikesCount((prevLikesCount) => prevLikesCount + 1);
+      // setlikesCount((prevLikesCount) => prevLikesCount + 1);
     }else{
       dispatch(unlikeVacation(vacationId));
       setIsLiked(false);
       dispatch(deleteLikeToVacation(vacationId));
       await deleteLikedVacationAsync(userId,vacationId);
-      setlikesCount((prevLikesCount) => prevLikesCount - 1);
+      // setlikesCount((prevLikesCount) => prevLikesCount - 1);
     }
   }
 
   const displayErrorMessage = () => {
     if(error && showError){
+
       return(
-        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+        <Alert error={'you have to be logged in to access this page'} onClose={() => {setShowError(false)}}>
           <Button onClick={() => {
-            window.location.reload();
-          }}>Try again</Button>
+            navigate('/');
+          }}>
+            Login
+          </Button>
         </Alert>
-      );
+      )
     }
   }
 
@@ -79,8 +83,9 @@ const LikeButton: FC<LikeButtonProps> = ({vacation,userId}) => {
     <label className={styles.LikeButton}>
       {displayErrorMessage()}
       <input type="checkbox" checked={isLiked} onChange={() => handleLikeClick(vacationId)}/>
-      <span className='headerFont'>Like {likesCount}</span>
+      <span className='textFont'>Like {followersCount}</span>
     </label>
+
   )
 };
 

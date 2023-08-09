@@ -41,7 +41,7 @@ export const updateVacationAsync = async (vacation:Vacation):Promise<Vacation> =
     formData.append('endDate',vacation.endDate);
     formData.append('price',vacation.price.toString());
     formData.append('image',vacation.image[0]);
-    formData.append('imagName',vacation.imageName);
+    formData.append('imagName',vacation.imageName[0]);
 
     const response = await axios.put<Vacation>(`/vacations/${vacation.id}`,formData);
     const updatedVacation = response.data;

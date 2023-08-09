@@ -67,8 +67,10 @@ export default {
     price:{
         required:{value:true,
                   message:'missing price'},
-        min:{value:50,
-                   message:'destination must have 2 chars or more'},
+        min:{value:0,
+                   message:"price can't be less than 50$"},
+        max:{value:10000,
+                   message:"price can't be higher than 10,000$"}
     },
     image:{}
 }

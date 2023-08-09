@@ -47,24 +47,24 @@
         }
       }
 
-      &__fileInputContainer{
-        display: flex;
-        justify-content: center;
+    //   &__fileInputContainer{
+    //     display: flex;
+    //     justify-content: center;
 
-        input[type="file"]{
-            display: none;
-        }
-        label{
-            cursor: pointer;
-            border: 2px solid gray;
-            border-radius: 10px;
-            padding: 5px;
-            color: white;
-            text-shadow: 2px 2px 4px rgb(150, 135, 135);
-            background-color: rgb(130, 115, 96);
-            opacity: 0.7;
-        }
-      }
+    //     // input[type="file"]{
+    //     //     display: none;
+    //     // }
+    //     label{
+    //         cursor: pointer;
+    //         border: 2px solid gray;
+    //         border-radius: 10px;
+    //         padding: 5px;
+    //         color: white;
+    //         text-shadow: 2px 2px 4px rgb(150, 135, 135);
+    //         background-color: rgb(130, 115, 96);
+    //         opacity: 0.7;
+    //     }
+    //   }
 }
     
 

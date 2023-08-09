@@ -28,7 +28,7 @@ html,body,#root{
 
 @font-face {
     font-family: text_font;
-    src: url(../assets/fonts/CocoGothic_trial.ttf);
+    src: url(../assets/fonts/texgyreadventor-italic.otf);
 }
 
 .textFont{

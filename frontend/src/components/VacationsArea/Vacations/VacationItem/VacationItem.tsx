@@ -11,6 +11,8 @@ import { useDispatch } from 'react-redux';
 import * as vacationReducer from '../../vacationsSlice';
 import Alert from '../../../AlertArea/Alert/Alert';
 import Button from '../../../Button/Button';
+import { useAppSelector } from '../../../../hooks';
+import ConfirmationAlert from '../../../ConfirmationAlert/ConfirmationAlert';
 
 
 interface VacationItemProps {
@@ -22,6 +24,7 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
 
   const [showError,setShowError] = useState<boolean>(false);
   const [error,setError] = useState<any>(null);
+  const [showConfirmationMessage,setShowConfirmationMessage] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,11 +36,11 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
   const end_Date = new Date(endDate);
   const endDateString = `${end_Date.getDate()}.${end_Date.getMonth() + 1}.${end_Date.getFullYear()}`;
   
+  // const {user:_user} = useAppSelector(state => state.authState);
   
 
-  const deleteVacation = async () => {
-
-    console.log(id)
+  const deleteVacationHandler = async () => {
+    setShowConfirmationMessage(false);
     try{
       const success = await deleteVacationAsync(id);
       if(success){
@@ -53,14 +56,18 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
   }
 
   const displayErrorMessage = () => {
+
     if(error && showError){
+
       return(
-        <Alert error={error.response.data} onClose={() => {setShowError(false)}}>
+        <Alert error={'you have to be logged in to access this page'} onClose={() => {setShowError(false)}}>
           <Button onClick={() => {
-            window.location.reload();
-          }}>Try again</Button>
+            navigate('/');
+          }}>
+            Login
+          </Button>
         </Alert>
-      );
+      )
     }
   }
 
@@ -75,9 +82,9 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
           <LikeButton vacation={vacation} userId={user.id!}/>
         </div>
         
-        <div className='headerFont'> <i className='fas fa-calendar'></i> {startDateString} - {endDateString}</div>
+        <div className='textFont'> <i className='fas fa-calendar'></i> {startDateString} - {endDateString}</div>
         <div className={`textFont ${styles.VacationItem__descriptionContainer}`}>{description}</div>
-        <div className={`headerFont ${styles.VacationItem__priceContainer}`}>
+        <div className={`textFont ${styles.VacationItem__priceContainer}`}>
           {price}
           <span>$</span>
         </div>
@@ -86,24 +93,24 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
       
     }
     return (
-      <li className={`blueBackground ${styles.VacationItem}`}>
+      <li className={styles.VacationItem}>
       <div className={styles.VacationItem__imgContainer}>
         <div className={styles.VacationItem__btnContainer}>
-        <button onClick={() => {
+        <button className='textFont' onClick={() => {
           dispatch(vacationReducer.setVacation(vacation));
           navigate('/editVacation');
         }}>&#9998; Edit</button>
-        <button onClick={deleteVacation}>
+        <button className='textFont' onClick={() => {setShowConfirmationMessage(true)}}>
           <i className="fa fa-trash"></i> Delete
         </button>
         </div>
         <img src={imgSrc} alt=''/>
-        <h3>{destination}</h3>
+        <h3 className='headerFont'>{destination}</h3>
       </div>
       
-      <div> <i className='fas fa-calendar'></i> {startDateString} - {endDateString}</div>
-      <div className={styles.VacationItem__descriptionContainer}>{description}</div>
-      <div className={styles.VacationItem__priceContainer}>
+      <div className='textFont'> <i className='fas fa-calendar'></i> {startDateString} - {endDateString}</div>
+      <div className={`textFont ${styles.VacationItem__descriptionContainer}`}>{description}</div>
+      <div className={`textFont ${styles.VacationItem__priceContainer}`}>
         {price}
         <span>$</span>
       </div>
@@ -115,6 +122,13 @@ const VacationItem: FC<VacationItemProps> = ({vacation,user}) => {
   return (
     <>
         {renderVacationCardRoleBased()}
+        {showConfirmationMessage &&
+          <ConfirmationAlert message='Are you sure you want to delete that vacations?' 
+          onClose={() => {setShowConfirmationMessage(false)}}>
+              <Button onClick={deleteVacationHandler}>Yes</Button>
+              <Button onClick={() => {setShowConfirmationMessage(false)}}>Cancel</Button>
+          </ConfirmationAlert>
+        }
         {displayErrorMessage()}
     </>
   )

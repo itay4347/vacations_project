@@ -28,6 +28,7 @@ export const vacationSlice = createSlice({
             const indexToUpdate = state.vacations.findIndex((v) => v.id === vacation.id);
             if(indexToUpdate >= 0){
                 state.vacations[indexToUpdate] = vacation;
+                
             }
             state.vacation = vacation;
         },

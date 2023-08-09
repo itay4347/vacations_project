@@ -23,7 +23,7 @@ const AuthMenu: FC<AuthMenuProps> = () => {
       return(
         <>
           <span className='headerFont'>Hello {user.firstName} {user.lastName} </span>
-          <NavLink onClick={logoutHandler} to="/">Logout</NavLink>
+          <NavLink className='headerFont' onClick={logoutHandler} to="/">Logout</NavLink>
         </>
       )
     }

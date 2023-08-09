@@ -27,8 +27,8 @@ class Vacation {
         destination:Joi.string().required().min(2).max(20),
         description:Joi.string().required().min(2),
         startDate:Joi.date().required(),
-        endDate:Joi.date().required().greater('now'),
-        price:Joi.number().required().greater(50),
+        endDate:Joi.date().required(),
+        price:Joi.number().required().max(10000),
         image:Joi.object().optional(),
         imageName:Joi.string().optional()
     });

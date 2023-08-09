@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { useNavigate } from 'react-router-dom';
 import Vacation from '../../../models/Vacation';
 import { getVacationsAsync, updateVacationAsync } from '../../../fetch/vacationsService';
-import { setVacations, updateVacation } from '../vacationsSlice';
+import { setVacation, setVacations, updateVacation } from '../vacationsSlice';
 import FormGroupWithError from '../../FormGroupWithError/FormGroupWithError';
 import validation from './validation';
 import Button from '../../Button/Button';
@@ -19,8 +19,8 @@ interface EditVacationProps {}
 const EditVacation: FC<EditVacationProps> = () => {
   const {vacation} = useAppSelector(state => state.vacationsState);
   const {register,handleSubmit,formState,setValue} = useForm<Vacation>();
-  const [file,setFile] = useState<File | null>(null);
-  const [imageSelectedUrl,setImgaeSelectedUrl] = useState<string>(`${BASE_API_URL}/vacations/images/${vacation?.imageName}`);
+  const [selectedFile,setSelectedFile] = useState<File | null>(null);
+  const [imageSelectedUrl,setImgaeSelectedUrl] = useState<string>('');
   const [error,setError] = useState<any>(null);
   const [showError,setShowError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -31,6 +31,7 @@ const EditVacation: FC<EditVacationProps> = () => {
       await updateVacationAsync(vacation);
       dispatch(updateVacation(vacation));
       navigate('/vacations');
+      
     }catch(err){
       setError(err);
       setShowError(true);
@@ -39,20 +40,20 @@ const EditVacation: FC<EditVacationProps> = () => {
   }
 
   useEffect(() => {
-    if(!file) return;
+    if(!selectedFile) return;
 
-    const imageUrl = URL.createObjectURL(file);
+    const imageUrl = URL.createObjectURL(selectedFile);
     setImgaeSelectedUrl(imageUrl);
 
     return () => {
       URL.revokeObjectURL(imageUrl);
     }
 
-  },[file]);
+  },[selectedFile]);
 
   const handleFileChange = (e:ChangeEvent<HTMLInputElement>) => {
-    if(e.target.files && e.target.files.length > 0){
-      setFile(e.target.files[0]);
+    if(e.target.files && e.target.files.length > 0 ){
+          setSelectedFile(e.target.files[0]);
     }
   }
 
@@ -69,8 +70,11 @@ const EditVacation: FC<EditVacationProps> = () => {
       setValue("endDate",endDateFormatted);
       setValue("price",vacation.price);
       setValue('imageName',vacation.imageName);
+
+      const imgSrc = `${BASE_API_URL}/vacations/images/${vacation.imageName}`;
+      setImgaeSelectedUrl(imgSrc);
     }
-  },[vacation,setValue]);
+  },[vacation]);
 
   const displayErrorMessage = () => {
     if(error && showError){
@@ -117,16 +121,15 @@ const EditVacation: FC<EditVacationProps> = () => {
           
           
             <div className={styles.EditVacation__imgContainer}>
-              {imageSelectedUrl && <img src={imageSelectedUrl} alt="" />}
+              <img src={imageSelectedUrl} alt="" />
             </div>
             <FormGroupWithError error={formState.errors.image?.message}>
               <div className={styles.EditVacation__fileInputContainer}>
-                <label htmlFor='vacationImage'>Change Image</label>
-                <input id='vacationImage' 
-                      type="file" 
-                      accept='image/*' 
-                      {...register('image')}
-                      // onChange={handleFileChange}  
+                <label>Change Image</label>
+                <input type="file" 
+                       accept='image/*' 
+                       {...register('image')}
+                       onChange={handleFileChange}  
                       />
               </div>
             </FormGroupWithError>

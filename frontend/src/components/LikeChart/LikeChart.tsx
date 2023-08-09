@@ -41,9 +41,22 @@ const LikeChart: FC<LikeChartProps> = () => {
 
   return(
     <div className={`headerFont ${styles.LikeChart}`}>
-        <h2>Followers Count Per Vacation</h2>
-        <div>
-          <Bar data={likeChartData} options={{}}/>
+        <h2>Vacations Report</h2>
+        <div className='barContainer'>
+          <Bar
+            style={
+              {
+                padding:"30px",
+                width:"100%",
+                height:"80%",
+                position:"absolute",
+                top:"60%",
+                left:"50%",
+                transform:"translate(-50%,-50%)"
+              }
+            }
+            data={likeChartData} 
+            options={{}} />
         </div>
     </div>
   )

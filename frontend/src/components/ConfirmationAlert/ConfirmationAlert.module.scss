@@ -1,0 +1,12 @@
+.ConfirmationAlert {
+    background-color: #e8cfcf;
+    border: 2px solid rgb(150, 138, 122);
+    color: rgb(92, 73, 48);;
+    border-radius: 3px;
+    padding: 20px;
+
+    div{
+            display:flex;
+            justify-content: center;
+    }
+}
