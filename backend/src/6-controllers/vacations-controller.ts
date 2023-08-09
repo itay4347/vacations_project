@@ -38,7 +38,6 @@ router.put("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (reques
         request.body.image = request.files?.image;
         const vacation = new Vacation(request.body);
         vacation.id = id;
-        console.log(vacation.image)
         const updatedVacation = await vacationLogic.updateVacation(vacation);
         response.json(updatedVacation);
     }catch(err:any){

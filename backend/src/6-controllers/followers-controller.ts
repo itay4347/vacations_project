@@ -86,7 +86,6 @@ router.get('/followers/csv', async (request:Request,response:Response,next:NextF
         const followersCount = await followersLogic.getFollowersCountByDestination();
         const fields = ["destination","followersCount"];
         const csv = json2csv(followersCount,{fields});
-        console.log(csv);
     
         const dateTime = Date.now();
         const dirPath = path.join(__dirname,"..","..","public","exports");
