@@ -48,13 +48,7 @@ const LikeChart: FC<LikeChartProps> = () => {
           <Bar
             style={
               {
-                padding:"30px",
-                width:"100%",
-                height:"80%",
-                position:"absolute",
-                top:"60%",
-                left:"50%",
-                transform:"translate(-50%,-50%)"
+                padding:"30px"
               }
             }
             data={likeChartData} 
