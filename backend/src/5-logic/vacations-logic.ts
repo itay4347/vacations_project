@@ -35,6 +35,8 @@ export const addNewVacation = async (vacation:Vacation):Promise<Vacation> => {
 
     const {destination,description,startDate,endDate,price,image} = vacation;
 
+    //if there is an image save the image to my assets file and delete the image from the array.
+    //and then insert the new imageName to my database with all its values.
     if(image){
         await saveImagesToAssets(vacation);
         delete vacation.image;
@@ -65,10 +67,10 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
 
     const updatedVacationIndex = vacations.findIndex((v) => v.id === vacation.id);
       
-    
+    //if there is an image save the image to my assets file and delete the image from the array.
+    //and then update the new imageName to my database with all its values.
     if(vacation.image){
         const currentImage = vacations[updatedVacationIndex].imageName;
-        console.log(currentImage);
         if(fs.existsSync(`${imagePath}/${currentImage}`)){
             fs.unlinkSync(`${imagePath}/${currentImage}`);
         }
@@ -83,6 +85,8 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
     
 
     const {id,destination,description,startDate,endDate,price} = vacation;
+    //if the user chose to change an image do this sql logic.
+    //if he chose to not change the image do the same logic but without the imageName.
         if(vacation.imageName){
             const sql = `UPDATE vacations SET destination = ?,
                                             description = ?,
@@ -123,7 +127,7 @@ export const updateVacation = async (vacation:Vacation):Promise<Vacation> => {
 export const deleteVacation = async (id:number):Promise<void> => {
 
     const vacation = await getVacationById(id);
-    console.log(vacation.imageName)
+    //upon deletion make sure to check if the image exsits in my assets file and if it exists there, delete it.
     if(vacation.imageName){
         if(fs.existsSync(`${imagePath}/${vacation.imageName}`)){
             fs.unlinkSync(`${imagePath}/${vacation.imageName}`);
@@ -138,6 +142,7 @@ export const deleteVacation = async (id:number):Promise<void> => {
 
 }
 
+//for filtering, this logic returns me all the vacation that hasnt started yet.
 export const getVacationsByStartingDate = async ():Promise<Vacation[]> => {
 
     const sql = `SELECT vacations.*, COUNT(followers.userId) AS followersCount
@@ -150,6 +155,7 @@ export const getVacationsByStartingDate = async ():Promise<Vacation[]> => {
     return await dal.execute(sql);
 }
 
+//for filtering, this logic returns me all the vacation that are active.
 export const getAllActiveVacations = async ():Promise<Vacation[]> => {
     const sql = `SELECT vacations.*, COUNT(followers.userId) AS followersCount
                  FROM vacations

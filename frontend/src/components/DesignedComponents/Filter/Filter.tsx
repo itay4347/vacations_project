@@ -2,9 +2,10 @@ import React, { FC,ChangeEvent } from 'react';
 import styles from './Filter.module.scss';
 
 interface FilterProps {
-  onChange:(e:ChangeEvent<HTMLInputElement>) => void;
+  onChange:(e:ChangeEvent<HTMLInputElement>) => void;//this props get the changeFilterHandler from its parent component.
 }
-
+//a reusable component to design the filter that ill use in my app
+//when a user checks on a filter it adds its input value to an array of selectedFilters.
 const Filter: FC<FilterProps> = ({onChange}) => (
   <div className={styles.Filter}>
     <h3 className='headerFont'>Filter vacations:</h3>

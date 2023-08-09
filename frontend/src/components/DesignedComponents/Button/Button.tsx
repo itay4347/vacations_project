@@ -6,7 +6,7 @@ interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   id?:string
 }
-
+//a reusable component for a button in my app
 const Button: FC<ButtonProps> = ({children,onClick,id}) => (
   <button id={id} className={styles.Button} onClick={onClick}>
     {children}

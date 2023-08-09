@@ -11,17 +11,19 @@ export const register = async (user:User):Promise<string> => {
     const error = user.validate();
     if(error) throw new ValidationError(error);
     const {firstName,lastName,email,password} = user;
+    //a function i wrote on this page, if the email is taken throw a validation error.
     if(await isEmailTaken(email)) throw new ValidationError(`email ${email} is allready taken`);
     
 
     try{
+        //getting the hashedPassword by using the hase function. and then insert it into the values.
         const hashedPassword = await hash(password);
         const sql = 'INSERT INTO users Values(DEFAULT,?,?,?,?,?)';
         const info = await dal.execute<OkPacket>(sql,[firstName,lastName,email,hashedPassword,Role.User]);
         user.id = info.insertId;
         user.role = Role.User;
         console.log(user);
-        return generateToken(user);
+        return generateToken(user);//generate a token based on the user object values.
     }catch(err){
         throw new Error('an error occurred while generating salt',500);
     }
@@ -34,14 +36,19 @@ export const login = async (credentials:Credentials):Promise<string> => {
     const {email,password} = credentials
 
     try{
+        //getting the user which hes email is equal to the email from the credentials.
         const sql = `SELECT * FROM users WHERE email = ?`
         const users = await dal.execute<User[]>(sql,[email]);
 
+        //if the array is empty throw an error for incorrect email.
         if(users.length === 0) throw new UnauthorizedError('Incorrect email has been entered');
 
         const user = users[0];
+        //checks if the password is from the credential is equal to the user password from my data base
         const match = await compareHash(password,user.password);
 
+        //if the boolean that returns is false throw error for incorrect password.
+        //else, generate a token from the user's credentials and return it.
         if(!match) throw new UnauthorizedError('Incorrect password has been entered');
         return generateToken(user);
         
@@ -50,6 +57,9 @@ export const login = async (credentials:Credentials):Promise<string> => {
     }
 }
 
+//this function checks if the email is taken, this takes the email argument,
+//and count how many times this email is written. if it written more than 0 times it returns true,
+//which says that the email is taken, else it returns false and you can continue with the register process.
 export const isEmailTaken = async (email:string):Promise<boolean> => {
 
     const sql = `SELECT COUNT(id) AS emailsCount FROM users 
@@ -64,7 +74,7 @@ export const isEmailTaken = async (email:string):Promise<boolean> => {
     }       
 
 }
-
+//using the id argument, it gets the user with this specific id.
 export const getOneUser = async (id:number):Promise<User> => {
     const sql = 'SELECT * FROM users WHERE id = ?;';
     const users = await dal.execute<User[]>(sql,[id]);

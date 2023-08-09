@@ -31,7 +31,6 @@ router.post("/vacations", [verifyLoggedIn,isUserAdmin], async (request: Request,
 });
 
 //PUT http://localhost:3001/api/vacations/:id
-
 router.put("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (request:Request,response:Response,next:NextFunction) => {
     try{
         const id = +request.params.id;
@@ -47,7 +46,8 @@ router.put("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (reques
     }
 });
 
-router.delete("/vacations/:id", [verifyLoggedIn,isUserAdmin], async (request:Request,response:Response,next:NextFunction) => {
+//http://localhost:3001/api/vacations/:id
+router.delete("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (request:Request,response:Response,next:NextFunction) => {
     try{
         const id = +request.params.id;
         
@@ -58,6 +58,7 @@ router.delete("/vacations/:id", [verifyLoggedIn,isUserAdmin], async (request:Req
     }
 });
 
+//http://localhost:3001/api/vacations/start
 router.get("/vacations/start", verifyLoggedIn ,async (request:Request,response:Response,next:NextFunction) => {
     try{
         const vacationsNotStarted = await vacationLogic.getVacationsByStartingDate();
@@ -67,6 +68,7 @@ router.get("/vacations/start", verifyLoggedIn ,async (request:Request,response:R
     }
 });
 
+//http://localhost:3001/api/vacations/active
 router.get("/vacations/active", verifyLoggedIn, async (request:Request,response:Response,next:NextFunction) => {
     try{
         const activeVacations = await vacationLogic.getAllActiveVacations();

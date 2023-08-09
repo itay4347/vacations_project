@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+//a validation following the validation documentation from react-hook-form
 import Vacation from '../../../models/Vacation';
 
 const validateEndDate = (dateInputValue:string,startDateInputValue:string,) => {

@@ -5,11 +5,11 @@ export const getVacationsAsync = async ():Promise<Vacation[]> => {
     const response = await axios.get<Vacation[]>('/vacations');
     const vacations = response.data
     return vacations;
-    // return new Promise((resolve,reject) => {
-    //     setTimeout(() => {
-    //         resolve(vacations);
-    //     },750)
-    // });
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(vacations);
+        },750)
+    });
 }
 
 export const addVacationAsync = async (vacation:Vacation):Promise<Vacation> => {

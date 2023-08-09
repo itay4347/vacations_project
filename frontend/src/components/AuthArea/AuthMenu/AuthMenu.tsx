@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import styles from './AuthMenu.module.scss';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
-import User from '../../../models/User';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import { logout } from '../../../auth/authSlice';
 
 interface AuthMenuProps {}
@@ -10,13 +9,14 @@ interface AuthMenuProps {}
 const AuthMenu: FC<AuthMenuProps> = () => {
 
   const dispatch = useAppDispatch();
-  const {user} = useAppSelector(state => state.authState);
-  const navigate = useNavigate();
+  const {user} = useAppSelector(state => state.authState);//get the object of the user that connected
 
+//function for loging out the user
   const logoutHandler = () => {
     dispatch(logout());
   }
 
+  //if the user is connected display its name and logout button,else display hello guest...
   const renderAuthMenu = () => {
 
     if(user){

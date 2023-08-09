@@ -1,3 +1,4 @@
+//a validation following the validation documentation from react-hook-form
 export default {
     firstName:{
         required:{value:true,

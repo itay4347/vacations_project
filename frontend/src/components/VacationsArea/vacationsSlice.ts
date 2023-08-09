@@ -1,3 +1,4 @@
+//a validation following the validation documentation from react-hook-form
 import {createSlice,PayloadAction} from '@reduxjs/toolkit';
 import Vacation from '../../models/Vacation';
 import Followers_Count from '../../models/FollowerCount';
@@ -16,22 +17,23 @@ export const vacationSlice = createSlice({
     initialState:initialState,
     reducers: {
         setVacations: (state, {payload:vacations}:PayloadAction<Vacation[]>)=> {
-            state.vacations = vacations;
+            state.vacations = vacations;//setting the vacations state to the payload value.
         },
         setVacation: (state, {payload:vacation}:PayloadAction<Vacation>)=> {
-            state.vacation = vacation;
+            state.vacation = vacation;//setting the vacation state to the payload value.
         },
         addVacation: (state, {payload:vacation}:PayloadAction<Vacation>) => {
-            state.vacations.push(vacation);
+            state.vacations.push(vacation);//pushing the added vacation in to the vacations array in the state.
         },
+        //replacing the vacation chose to update with the payload value.
         updateVacation: (state, {payload:vacation}: PayloadAction<Vacation>) => {
             const indexToUpdate = state.vacations.findIndex((v) => v.id === vacation.id);
             if(indexToUpdate >= 0){
                 state.vacations[indexToUpdate] = vacation;
-                
             }
             state.vacation = vacation;
         },
+        //splicing and removing the vacation with the id we get from the payload
         deleteVacation: (state, { payload: id }: PayloadAction<number>) => {
             const indexToDelete = state.vacations.findIndex((v) => v.id === id);
             if (indexToDelete >= 0) {
@@ -47,6 +49,7 @@ export const vacationSlice = createSlice({
                 vacation.followersCount = followersCount || 0;
             }
         },
+        //find the index of the vacationId i get from the payload and add +1 to the followersCount of this vacation.
         addLikeToVacation: (state, {payload:vacationId}:PayloadAction<number>) => {
             const vacationLikedIndex = state.vacations.findIndex(v => v.id === vacationId);
 
@@ -55,6 +58,7 @@ export const vacationSlice = createSlice({
                 state.vacation = state.vacations[vacationLikedIndex];
             }
         },
+        //find the index of the vacationId i get from the payload and lower the followersCount of this vacation by 1.
         deleteLikeToVacation: (state, {payload:vacationId}:PayloadAction<number>) => {
             const vacationUnlikedIndex = state.vacations.findIndex(v => v.id === vacationId);
 

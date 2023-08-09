@@ -1,15 +1,15 @@
 import React, { FC,useState } from 'react';
 import styles from './Login.module.scss';
-import FormGroupWithError from '../../FormGroupWithError/FormGroupWithError';
+import FormGroupWithError from '../../DesignedComponents/FormGroupWithError/FormGroupWithError';
 import { useForm } from 'react-hook-form';
 import Credentials from '../../../models/Credentials';
-import Button from '../../Button/Button';
+import Button from '../../DesignedComponents/Button/Button';
 import { loginAsync } from '../../../fetch/authService';
 import validation from './validation';
 import { useAppDispatch } from '../../../hooks';
 import {login} from '../../../auth/authSlice';
 import { NavLink,useNavigate } from 'react-router-dom';
-import Loader from '../../Loader/Loader';
+import Loader from '../../DesignedComponents/Loader/Loader';
 import Alert from '../../AlertArea/Alert/Alert';
 import { BASE_API_URL } from '../../../config';
 
@@ -26,14 +26,14 @@ const Login: FC<LoginProps> = () => {
   const [error, setError] = useState<any>(null);
   const [showError, setShowError] = useState(false);
 
+  //function for handling the login form.
   const handleLogin = async (credentials:Credentials) => {
       setIsLoading(true);
     try{
-      const token = await loginAsync(credentials);
-      dispatch(login(token));
-      navigate('/vacations');
+      const token = await loginAsync(credentials);//getting the token from the backend
+      dispatch(login(token));//setting the user state to the one that logged-in
+      navigate('/vacations');//if the user is logged-in successfuly navigate to the vacatons page.
     }catch(err){
-      console.log(err);
       setError(err);
       setShowError(true);
     }finally{
@@ -44,21 +44,19 @@ const Login: FC<LoginProps> = () => {
   
   
   
-
-  const renderErrorMessage = () => {
+  //setting the error message if this action is an error.
+  const displayErrorMessage = () => {
     
     if(error && showError){
       return(
         <Alert error={'the email or password are incorrect'} onClose={() => {setShowError(false)}}>
-          <Button onClick={() => {window.location.reload()}}>Try again</Button>
+          <Button onClick={() => {window.location.reload()}}>Try again</Button> 
         </Alert>
       )
     }
   }
 
-
-
-
+//if the app is loading set up the loader to work
   if(isLoading){
     return(
       <div className={styles.Login__loaderContainer}>
@@ -69,7 +67,7 @@ const Login: FC<LoginProps> = () => {
   return (
     <div className={styles.Login}>
       <img src={`${BASE_API_URL}/vacations/images/background_image.jpg`} alt="" />
-      <p className='paragraphFont'>
+      <p className='textFont'>
         welcome to
         <br />
         <strong className='headerFont'>Bon Voyage</strong>
@@ -78,9 +76,10 @@ const Login: FC<LoginProps> = () => {
       </p>
 
       <div className={`Box ${styles.Login__loginBox}`}>
-        {renderErrorMessage()}
+        {displayErrorMessage()}
         <h2 className='headerFont'>Login</h2>
         <br />
+        {/* {setting the form for logging in a user using the useForm library.} */}
         <form className='textFont' onSubmit={handleSubmit(handleLogin)}>
             <FormGroupWithError error={formState.errors.email?.message}>
               <label>Email</label>
@@ -97,6 +96,7 @@ const Login: FC<LoginProps> = () => {
           <div>
             dont have an account?
             <br />
+            {/* {here the user can choose to navigate to the register page if he doesnt have an account} */}
             <NavLink to='/register'>Register</NavLink>
             <br />
           </div>

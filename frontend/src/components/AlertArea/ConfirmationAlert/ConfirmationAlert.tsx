@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './ConfirmationAlert.module.scss';
-import Modal from '../Modal/Modal';
+import Modal from '../../DesignedComponents/Modal/Modal';
 
 interface ConfirmationAlertProps {
   message:string;
@@ -8,6 +8,7 @@ interface ConfirmationAlertProps {
   onClose: () => void;
 }
 
+//this component is for showing the confirmation message for a confirmation alert
 const ConfirmationAlert: FC<ConfirmationAlertProps> = ({children,message,onClose}) => (
   <Modal onClose={onClose}>
       <div className={styles.ConfirmationAlert}>

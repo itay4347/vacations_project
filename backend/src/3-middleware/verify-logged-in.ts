@@ -13,6 +13,8 @@ declare global {
     }
 }
 
+//this function takes the token and the secretKey of the app, if this is correct, the user is verified...
+//this is used to make sure i cant do cetain things without being logged-in.
 const verifyLoggedIn = async (request:Request,response:Response,next:NextFunction) => {
     const token = request.headers.authorization?.split(' ')[1];
 

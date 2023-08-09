@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './Alert.module.scss';
-import Modal from '../../Modal/Modal';
+import Modal from '../../DesignedComponents/Modal/Modal';
 
 type Error = {
   message: string;
@@ -12,7 +12,7 @@ interface AlertProps {
   onClose: () => void;
 }
 
-
+//this alert component is for showing the error messages.
 
 const Alert: FC<AlertProps> = ({ onClose, error, children }) => {
 

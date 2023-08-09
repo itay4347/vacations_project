@@ -7,6 +7,8 @@ interface ModalProps {
   onClose?: () => void;
 }
 
+//a reusable modal that will appear above everything else in my app when shown.
+//i use it for displaying the alert components.
 const Modal: FC<ModalProps> = ({children,onClose}) => {
 
   const portal = (

@@ -5,7 +5,7 @@ import LikedVacation from "../4-models/LikedVacation";
 import Vacation from "../4-models/Vacation";
 import { OkPacket } from "mysql";
 
-
+//this returns all the vacations liked by this userId, using join between the vacations and followers table.
 export const getVacationsLikedPerUser = async (userId:number):Promise<Vacation[]> => {
     const sql = `SELECT vacations.*
                  FROM vacations
@@ -18,6 +18,7 @@ export const getVacationsLikedPerUser = async (userId:number):Promise<Vacation[]
     return vacationLikedByUser;
 }
 
+//this return a table with followersCount column and vacationId column to get me the followers count per vacation.
 export const getFollowersCount = async ():Promise<Followers_Count[]> => {
 
     const sql = `
@@ -31,6 +32,7 @@ export const getFollowersCount = async ():Promise<Followers_Count[]> => {
     return followerCount;
 }
 
+//gets userId and vacationId arguments and checks if the user with this specific id has liked the vacation with this specific id.
 export const checkIfUserLikedVacation = async (userId:number,vacationId:number):Promise<boolean> => {
     
     const sql = 'SELECT * FROM followers WHERE userId = ? AND vacationId = ?';
@@ -38,18 +40,11 @@ export const checkIfUserLikedVacation = async (userId:number,vacationId:number):
     return numberOfLikes.length > 0;
 }
 
-export const getAllLikedVacations = async ():Promise<LikedVacation[]> => {
-
-    const sql = 'SELECT * FROM followers;';
-
-    return await dal.execute<LikedVacation[]>(sql);
-
-}
 
 export const addLikedVacation = async (likedVacation:LikedVacation):Promise<LikedVacation> => {
 
     const {userId,vacationId} = likedVacation;
-
+    //checks if the user has allready liked this vacation.
     const checkSql = 'SELECT id FROM followers WHERE userId = ? AND vacationId = ?;';
     const [existingLike] = await dal.execute<{ id: number }[]>(checkSql, [userId, vacationId]);
   
@@ -59,6 +54,7 @@ export const addLikedVacation = async (likedVacation:LikedVacation):Promise<Like
       return likedVacation;
     }
 
+    //else, insert the vacationId and userId into the followers table.
     const sql = 'INSERT INTO followers VALUES(DEFAULT,?,?);';
 
     const info = await dal.execute<OkPacket>(sql,[userId,vacationId]);
@@ -73,6 +69,7 @@ export const deleteLikedVacation = async (userId:number,vacationId:number):Promi
     return await dal.execute(sql,[userId,vacationId]);
 }
 
+//sql logic for returning an array with followersCount and destination for the csv function.
 export const getFollowersCountByDestination = async ():Promise<any[]> => {
     const sql = `
             SELECT vacations.destination, COUNT(followers.userId) AS followersCount

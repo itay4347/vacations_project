@@ -5,7 +5,7 @@ interface FormGroupWithErrorProps {
   children:ReactNode;
   error?:string;
 }
-
+//a reuse component for a form group inside my app.
 const FormGroupWithError: FC<FormGroupWithErrorProps> = ({children,error}) => (
   <div className={styles.FormGroupWithError}>
     {children}

@@ -13,9 +13,8 @@ import { Bar } from 'react-chartjs-2';
 
 interface LikeChartProps {}
 
+//this component uses the react-chart-js-2 library for displaying the likeChart.
 const LikeChart: FC<LikeChartProps> = () => {
-
-  const {vacations} = useAppSelector(State => State.vacationsState);
 
   chartJs.register(
     BarElement,
@@ -24,8 +23,10 @@ const LikeChart: FC<LikeChartProps> = () => {
     Tooltip,
     Legend
   )
-  const labels = vacations.map((vacation) => vacation.destination);
-  const labelsData = vacations.map((vacation) => vacation.followersCount);
+  const {vacations} = useAppSelector(State => State.vacationsState);//getting the vacations array from my redux vacations state.
+  const labels = vacations.map((vacation) => vacation.destination);//setting the labels to be an array of my vacation destinations.
+  const labelsData = vacations.map((vacation) => vacation.followersCount);//setting the labels data to be an array of my vacations followers count.
+  //setting up the chart data according to the library documentation.
   const likeChartData = {
     labels:labels,
     datasets:[
@@ -43,6 +44,7 @@ const LikeChart: FC<LikeChartProps> = () => {
     <div className={`headerFont ${styles.LikeChart}`}>
         <h2>Vacations Report</h2>
         <div className='barContainer'>
+          {/* {using the Bar component to display the chart i chose to display.} */}
           <Bar
             style={
               {

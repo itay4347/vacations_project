@@ -3,6 +3,8 @@ import User from '../4-models/User';
 import Role from '../4-models/Role';
 import { ForbiddenError, UnauthorizedError } from '../4-models/Error';
 
+//this is a middleware i write add in every place that needs to be accessed only for users with the role - admin.
+//if the user is not admin send an error.
 export const isUserAdmin = async (request:Request,response:Response,next:NextFunction) => {
     
     const user = request?.user;

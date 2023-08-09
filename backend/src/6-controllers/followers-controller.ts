@@ -20,7 +20,8 @@ router.get('/followersCount', async (request:Request,response:Response,next:Next
     }
 });
 
-router.get('/followers/:userId/vacations/:vacationId', 
+//http://localhost:3001/api/followers/:userId/vacations/:vacationId
+router.get('/followers/:userId([0-9]+)/vacations/:vacationId([0-9]+)', 
             async (request:Request,response:Response,next:NextFunction) => {
     try{
         const userId = +request.params.userId;
@@ -43,7 +44,7 @@ router.get('/followers/:userId/vacations/:vacationId',
 });
 
 //http://localhost:3001/api/followers/vacations/:userId
-router.get('/followers/vacations/:userId', async (request:Request,response:Response,next:NextFunction) => {
+router.get('/followers/vacations/:userId([0-9]+)', async (request:Request,response:Response,next:NextFunction) => {
 
     try{
         const userId = +request.params.userId;
@@ -54,16 +55,6 @@ router.get('/followers/vacations/:userId', async (request:Request,response:Respo
     }
 });
 
-//http://localhost:3001/api/followers
-router.get('/followers', async (request:Request,response:Response,next:NextFunction) => {
-
-    try{
-        const likedVacations = await followersLogic.getAllLikedVacations();
-        response.json(likedVacations);
-    }catch(err){
-        next(err);
-    }
-});
 //http://localhost:3001/api/followers
 router.post('/followers', async (request:Request,response:Response,next:NextFunction) => {
 
@@ -77,7 +68,7 @@ router.post('/followers', async (request:Request,response:Response,next:NextFunc
 });
 //http://localhost:3001/api/followers/:userId/vacations/:vacationId
 router.delete(
-    '/followers/:userId/vacations/:vacationId',
+    '/followers/:userId([0-9]+)/vacations/:vacationId([0-9]+)',
      async (request:Request,response:Response,next:NextFunction) => {
 
     try{
@@ -90,6 +81,7 @@ router.delete(
     }
 });
 
+//http://localhost:3001/api/followers/csv
 router.get('/followers/csv', async (request:Request,response:Response,next:NextFunction) => {
     try{
 
