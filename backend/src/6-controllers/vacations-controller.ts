@@ -51,7 +51,7 @@ router.delete("/vacations/:id([0-9]+)", [verifyLoggedIn,isUserAdmin], async (req
         const id = +request.params.id;
         
         await vacationLogic.deleteVacation(id);
-        response.json(204);
+        response.sendStatus(204);
     }catch(err:any){
         next(err);
     }
