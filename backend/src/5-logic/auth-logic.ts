@@ -35,26 +35,21 @@ export const login = async (credentials:Credentials):Promise<string> => {
 
     const {email,password} = credentials
 
-    try{
-        //getting the user which hes email is equal to the email from the credentials.
-        const sql = `SELECT * FROM users WHERE email = ?`
-        const users = await dal.execute<User[]>(sql,[email]);
+    //getting the user whose email is equal to the email from the credentials.
+    const sql = `SELECT * FROM users WHERE email = ?`
+    const users = await dal.execute<User[]>(sql,[email]);
 
-        //if the array is empty throw an error for incorrect email.
-        if(users.length === 0) throw new UnauthorizedError('Incorrect email has been entered');
+    //the same message for a wrong email or a wrong password,
+    //so the response doesn't reveal which emails are registered.
+    const loginError = new UnauthorizedError('Incorrect email or password');
+    if(users.length === 0) throw loginError;
 
-        const user = users[0];
-        //checks if the password is from the credential is equal to the user password from my data base
-        const match = await compareHash(password,user.password);
+    const user = users[0];
+    //checks if the password from the credentials matches the hashed password in the database.
+    const match = await compareHash(password,user.password);
+    if(!match) throw loginError;
 
-        //if the boolean that returns is false throw error for incorrect password.
-        //else, generate a token from the user's credentials and return it.
-        if(!match) throw new UnauthorizedError('Incorrect password has been entered');
-        return generateToken(user);
-        
-    }catch(err){
-        throw new Error('an error occurred while generating salt',500);
-    }
+    return generateToken(user);
 }
 
 //this function checks if the email is taken, this takes the email argument,
