@@ -4,7 +4,20 @@ A full-stack vacation booking and tracking web app. Users browse vacations, filt
 
 Built with **React + TypeScript** on the frontend and **Node.js + Express + TypeScript** on the backend, with a **MySQL** database.
 
-<!-- Add a screenshot or GIF here: ![App screenshot](docs/screenshot.png) -->
+![Vacations page (admin view)](docs/vacations.png)
+
+<details>
+<summary>More screenshots</summary>
+
+**Followers chart (admin)**
+
+![Followers chart](docs/chart.png)
+
+**Login page**
+
+![Login page](docs/login.png)
+
+</details>
 
 ---
 
